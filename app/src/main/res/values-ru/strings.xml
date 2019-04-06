@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">LetsHang</string>
+    <string name="login">логин</string>
+    <string name="Password">пароль</string>
+    <string name="Email">Эл.адрес</string>
+    <string name="Remember">Запомни меня</string>
+    <string name="Register">нет аккаунта? Зарегистрируйтесь здесь</string>
+    <string name="facebook">Продолжить с Facebook</string>
+    <string name="language">изменение языка</string>
+    <string name="loginStatus">Статус входа</string>
+    <string name="loginError">Неверный адрес электронной почты или пароль</string>
+    <string name="createAccount">создать аккаунт</string>
+    <string name="UserName">имя пользователя</string>
+    <string name="Birthday">Дата рождения</string>
+    <string name="createMyAccount">Создать мой аккаунт</string>
+    <string name="errorTitle">ошибка</string>
+    <string name="nullStringError">Все поля должны быть заполнены!</string>
+    <string name="emailError">Пожалуйста, введите действительный адрес электронной почты</string>
+    <string name="correctDetails">" Мои данные верны"</string>
+    <string name="gender">Пол</string>
+    <string-array name="genderChoice">
+        <item>Пол</item>
+        <item>Мужской</item>
+        <item>Женский</item>
+    </string-array>
+    <string name="menu">" меню"</string>
+    <string name="account">аккаунт</string>
+    <string name="logout">" выйти"</string>
+    <string name="userAccount">мой аккаунт</string>
+    <string name="changePassword">" Изменить пароль"</string>
+    <string name="oldPassword">существующий пароль</string>
+    <string name="newPassword">" Новый пароль"</string>
+    <string name="cancel">" отмена"</string>
+    <string name="currentPasswordError">Неверный существующий пароль</string>
+    <string name="newPasswordError">" Новые пароли не совпадают"</string>
+    <string name="update">" сообщение"</string>
+    <string name="passwordChanged">Пароль изменен</string>
+    <string name="newMeeting">" Создать новую встречу"</string>
+    <string name="findMeeting">найти встречу</string>
+    <string name="noMeetings">Вы не зарегистрированы ни на одну встречу</string>
+    <string name="Theme">" тема"</string>
+    <string name="subTheme">Суб тема</string>
+    <string-array name="themesChoose">
+        <item>Тема</item>
+        <item>Компьютеры</item>
+        <item>Спорт </item>
+        <item>Игры</item>
+        <item>На открытом воздухе</item>
+        <item>Поездка</item>
+        <item> Домашние животные</item>
+    </string-array>
+    <string name="timeHint">" время"</string>
+    <string name="date">дата</string>
+    <string name="Description">" Описание...."</string>
+    <string name="myMeetings">" Мои встречи"</string>
+    <string name="done">Отправить</string>
+    <string name="MeetingOnlyFor">" Встреча только для:"</string>
+    <string name="afterAge">" Встреча только людей старше возраста:"</string>
+    <string name="belowAge">Встреча только людей в возрасте до:</string>
+    <string name="place">" место:"</string>
+    <string name="Creator">Владелец встречи:</string>
+    <string name="Any">Для всех</string>
+    <string name="betweenAge">" Только для возрастов в диапазоне:"</string>
+</resources>

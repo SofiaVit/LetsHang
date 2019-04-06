@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/userMenu"
+        android:title="@string/menu"
+        android:icon="@drawable/menu_image"
+        app:showAsAction="always">
+        <menu>
+            <item
+                android:id="@+id/myMeetings_menu"
+                android:title="@string/myMeetings"
+                app:showAsAction="never"/>
+            <item
+                android:id="@+id/newMeeting_menu"
+                android:title="@string/newMeeting"
+                app:showAsAction="never"/>
+            <item
+                android:id="@+id/account_menu"
+                android:title="@string/account"
+                app:showAsAction="never"/>
+            <item
+                android:id="@+id/logOut_menu"
+                android:title="@string/logout"
+                app:showAsAction="never"/>
+        </menu>
+    </item>
+
+
+</menu>

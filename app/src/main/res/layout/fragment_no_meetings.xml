@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             tools:context=".NoMeetingsFragment">
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/noMeetings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/noMeetings"
+        android:textColor="@color/colorBlack"
+        android:textSize="25sp"
+        android:textAlignment="center"/>
+
+        <Button
+            android:id="@+id/newMeetingButton"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/noMeetings"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_width="150dp"
+            android:layout_height="60dp"
+            android:text="@string/newMeeting"
+            android:textSize="15dp"
+            />
+
+        <Button
+            android:id="@+id/findMeetingButton"
+            android:layout_below="@+id/noMeetings"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_width="150dp"
+            android:layout_height="60dp"
+            android:text="@string/findMeeting"
+            android:textSize="15dp"/>
+
+</RelativeLayout>
+
+</FrameLayout>

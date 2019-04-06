@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">LetsHang</string>
+    <string name="login">כניסה</string>
+    <string name="Password">סיסמא</string>
+    <string name="Email">דוא"ל</string>
+    <string name="Remember">תזכור אותי</string>
+    <string name="Register">עדין אין חשבון? הירשם כאן</string>
+    <string name="facebook">המשך עם facebook</string>
+    <string name="language">החלפת שפה</string>
+    <string name="loginStatus">מצב התחברות</string>
+    <string name="loginError">אימייל או סיסמא אינם נכונים</string>
+    <string name="createAccount">יצירת חשבון</string>
+    <string name="UserName">שם משתמש</string>
+    <string name="Birthday">תאריך לידה</string>
+    <string name="createMyAccount">צור את החשבון שלי</string>
+    <string name="errorTitle">שגיאה</string>
+    <string name="nullStringError">אין להשאיר שדות ריקים</string>
+    <string name="emailError">נא להזין דוא\"ל חוקי</string>
+    <string name="correctDetails">הפרטים שלי נכונים</string>
+    <string name="gender">מין</string>
+    <string-array name="genderChoice">
+        <item>מין</item>
+        <item>זכר</item>
+        <item>נקבה</item>
+    </string-array>
+    <string name="menu">תפריט</string>
+    <string name="account">חשבון משתמש</string>
+    <string name="logout">התנתקות</string>
+    <string name="userAccount">החשבון שלי</string>
+    <string name="changePassword">שינוי סיסמא</string>
+    <string name="oldPassword">סיסמא נוכחי</string>
+    <string name="newPassword">סיסמא חדשה</string>
+    <string name="cancel">ביטול</string>
+    <string name="currentPasswordError">סיסמא נוכחית אינה נכונה</string>
+    <string name="newPasswordError">סיסמאות חדשות לא תואמות</string>
+    <string name="update">עדכון</string>
+    <string name="passwordChanged">הסיסמא שונתה</string>
+    <string name="newMeeting">יצירת מפגש חדש</string>
+    <string name="findMeeting">חיפוש מפגש</string>
+    <string name="noMeetings">אינך רשום/ה לשום מפגש</string>
+    <string name="Theme">נושא</string>
+    <string name="subTheme">תת נושא</string>
+    <string-array name="themesChoose">
+        <item>נושא</item>
+        <item>מחשבים</item>
+        <item>ספורט</item>
+        <item>משחקים</item>
+        <item>פעילות בחוץ</item>
+        <item>טיול</item>
+        <item>חיות מחמד</item>
+    </string-array>
+    <string name="timeHint">זמן</string>
+    <string name="date">תאריך</string>
+    <string name="Description">תיאור....</string>
+    <string name="myMeetings">המפגשים שלי</string>
+    <string name="done">סיום</string>
+    <string name="MeetingOnlyFor">מפגש רק ל:</string>
+    <string name="afterAge" translatable="false">מפגש רק לאנשים מעל גיל:</string>
+    <string name="belowAge">מפגש רק לאנשים מתחת לגיל:</string>
+    <string name="place">מקום:</string>
+    <string name="Creator">בעל המפגש:</string>
+    <string name="Any">לכולם</string>
+    <string name="betweenAge">רק לגילאים בטווח:</string>
+
+</resources>

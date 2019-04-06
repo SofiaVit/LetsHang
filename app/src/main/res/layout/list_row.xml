@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/subThemeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorBlack"/>
+    <TextView
+        android:id="@+id/betweenAgeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:textColor="@color/colorBlack"
+        android:layout_below="@+id/subThemeText"/>
+    <TextView
+        android:id="@+id/GenderText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:textColor="@color/colorBlack"
+        android:layout_below="@+id/betweenAgeText"/>
+    <TextView
+        android:id="@+id/dateText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:textColor="@color/colorBlack"
+        android:layout_alignParentRight="true"/>
+    <TextView
+        android:id="@+id/timeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:textColor="@color/colorBlack"
+        android:layout_toLeftOf="@+id/dateText"
+        android:layout_marginRight="5dp"/>
+    <TextView
+        android:id="@+id/placeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:textColor="@color/colorBlack"
+        android:layout_below="@+id/timeText"
+        android:layout_alignParentRight="true"/>
+
+
+</RelativeLayout>

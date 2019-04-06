@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             xmlns:app="http://schemas.android.com/apk/res-auto"
+             tools:context=".UserMeetingsFragment">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ListView
+            android:id="@+id/myMeetings"
+            android:layout_width="match_parent"
+            android:layout_height="680dp"
+            android:paddingTop="10dp"
+            />
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/newMeeting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/myMeetings"
+            android:layout_alignParentBottom="true"
+            app:cardBackgroundColor="@color/colorEditText">
+
+            <TextView
+                android:id="@+id/createNewMeeting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/plus_image"
+                android:drawablePadding="20dp"
+                android:text="@string/newMeeting"
+                android:textSize="25sp"
+                android:layout_gravity="center"
+                />
+        </android.support.v7.widget.CardView>
+
+    </RelativeLayout>
+
+</FrameLayout>

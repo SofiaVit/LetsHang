@@ -1,0 +1,69 @@
+<resources>
+    <string name="app_name">LetsHang</string>
+    <string name="login">Login</string>
+    <string name="Password">Password</string>
+    <string name="Email">Email</string>
+    <string name="Remember">Remember me</string>
+    <string name="Register">No account yet? Register here</string>
+    <string name="facebook">Continue with facebook</string>
+    <string name="language">Change language</string>
+    <string name="loginStatus">Login Status</string>
+    <string name="loginError">Email or password are not correct</string>
+    <string name="createAccount">Create Account</string>
+    <string name="UserName">User name</string>
+    <string name="Birthday">Birthday</string>
+    <string name="createMyAccount">Create my account</string>
+    <string name="errorTitle">Error</string>
+    <string name="nullStringError">All fields must be filed!</string>
+    <string name="emailError">Please enter valid email address</string>
+    <string name="facebook_app_id" translatable="false">158358655115910</string>
+    <string name="fb_login_protocol_scheme" translatable="false">fb158358655115910</string>
+    <string name="correctDetails">My details are correct</string>
+    <string name="gender">Gender</string>
+    <string-array name="genderChoice">
+        <item>Gender</item>
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
+    <string name="menu">Menu</string>
+    <string name="account">Account</string>
+    <string name="logout">Log Out</string>
+    <string name="userAccount">My account</string>
+    <string name="changePassword">Change Password</string>
+    <string name="oldPassword">Current Password</string>
+    <string name="newPassword">New Password</string>
+    <string name="ok" translatable="false">Ok</string>
+    <string name="cancel">Cancel</string>
+    <string name="currentPasswordError">Current password is wrong</string>
+    <string name="newPasswordError">New passwords doesnt match</string>
+    <string name="update">Update</string>
+    <string name="passwordChanged">Password changed</string>
+    <string name="newMeeting">Create New Meeting</string>
+    <string name="findMeeting">Find Meeting</string>
+    <string name="noMeetings">You are not registered for any meeting</string>
+    <string name="Theme">Theme</string>
+    <string name="subTheme">Sub theme</string>
+    <string-array name="themesChoose">
+        <item>Theme</item>
+        <item>Computers</item>
+        <item>Sport</item>
+        <item>Games</item>
+        <item>Outdoors</item>
+        <item>Trip</item>
+        <item>Pets</item>
+    </string-array>
+    <string name="timeHint">Time</string>
+    <string name="date">Date</string>
+    <string name="Description">Description....</string>
+    <string name="myMeetings">My meetings</string>
+    <string name="done">Done</string>
+    <string name="MeetingOnlyFor">Meeting only for:</string>
+    <string name="afterAge">Meeting only people over age:</string>
+    <string name="belowAge">Meeting only people under the age of:</string>
+    <string name="place">Place:</string>
+    <string name="Creator">Meeting owner:</string>
+    <string name="Any">Any</string>
+    <string name="betweenAge">Only for ages in range:</string>
+
+
+</resources>
