@@ -10,21 +10,24 @@
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:textColor="@color/colorBlack"/>
+        android:textColor="@color/colorBlack"
+        android:layout_alignParentLeft="true"/>
     <TextView
         android:id="@+id/betweenAgeText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="15sp"
         android:textColor="@color/colorBlack"
-        android:layout_below="@+id/subThemeText"/>
+        android:layout_below="@+id/subThemeText"
+        android:layout_alignParentLeft="true"/>
     <TextView
         android:id="@+id/GenderText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="15sp"
         android:textColor="@color/colorBlack"
-        android:layout_below="@+id/betweenAgeText"/>
+        android:layout_below="@+id/betweenAgeText"
+        android:layout_alignParentLeft="true"/>
     <TextView
         android:id="@+id/dateText"
         android:layout_width="wrap_content"
