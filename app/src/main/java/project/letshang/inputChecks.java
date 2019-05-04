@@ -11,4 +11,19 @@ public class inputChecks {
            return false;
     }
 
+    public static boolean ilegalChar(String text){
+        if(text.contains("%")){
+            return true;
+        }
+        else
+            return false;
+    }
+
+    public static boolean paswwordCheck(String pass){
+        if(pass.length() < 8 || pass.isEmpty())
+            return true;
+        else
+            return false;
+    }
+
 }

@@ -2,13 +2,11 @@ package project.letshang;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Looper;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -128,6 +126,13 @@ public class database extends AsyncTask<String,Void,String> {
             }
             return connect();
         }
+
+        else if(query_name.equals("allMeetings")){
+            php_name = "allMeetings.php";
+            post_data="";
+            return connect();
+
+        }
         else if(query_name.equals("newMeeting")){
             String result="error";
             String MeetingId = "";
@@ -162,6 +167,203 @@ public class database extends AsyncTask<String,Void,String> {
                         + URLEncoder.encode("Time", "UTF-8") + "=" + URLEncoder.encode(params[9], "UTF-8") + "&"
                         + URLEncoder.encode("Date", "UTF-8") + "=" + URLEncoder.encode(params[10], "UTF-8") + "&"
                         + URLEncoder.encode("Description", "UTF-8") + "=" + URLEncoder.encode(params[11], "UTF-8");
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
+            return connect();
+        }
+        else if(query_name.equals("searchMeeting")){
+            php_name = "searchMeeting.php";
+            String Theme = params[1];
+            String Time = params[2];
+            String Place = params[3];
+            try {
+                post_data = URLEncoder.encode("Theme", "UTF-8") + "=" + URLEncoder.encode(Theme, "UTF-8") + "&"
+                        + URLEncoder.encode("Time", "UTF-8") + "=" + URLEncoder.encode(Time, "UTF-8") + "&"
+                        + URLEncoder.encode("Place", "UTF-8") + "=" + URLEncoder.encode(Place, "UTF-8");
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
+            return connect();
+        }
+        else if(query_name.equals("checkIfMeetingFriend")){
+            php_name = "checkIfMeetingFriend.php";
+            String Email = params[1];
+            String MeetingId = params[2];
+            try {
+                post_data = URLEncoder.encode("Email", "UTF-8") + "=" + URLEncoder.encode(Email, "UTF-8") + "&"
+                        + URLEncoder.encode("MeetingId", "UTF-8") + "=" + URLEncoder.encode(MeetingId, "UTF-8");
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
+            return connect();
+        }
+        else if(query_name.equals("joinMeeting")){
+            php_name = "joinMeeting.php";
+            String Email = params[1];
+            String MeetingId = params[2];
+            try {
+                post_data = URLEncoder.encode("Email", "UTF-8") + "=" + URLEncoder.encode(Email, "UTF-8") + "&"
+                        + URLEncoder.encode("MeetingId", "UTF-8") + "=" + URLEncoder.encode(MeetingId, "UTF-8");
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
+            return connect();
+        }
+        else if(query_name.equals("leaveMeeting")){
+            php_name = "leaveMeeting.php";
+            String Email = params[1];
+            String MeetingId = params[2];
+            try {
+                post_data = URLEncoder.encode("Email", "UTF-8") + "=" + URLEncoder.encode(Email, "UTF-8") + "&"
+                        + URLEncoder.encode("MeetingId", "UTF-8") + "=" + URLEncoder.encode(MeetingId, "UTF-8");
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
+            return connect();
+        }
+        else if (query_name.equals("deleteMeeting")){
+            php_name = "deleteMeeting.php";
+            String Email = params[1];
+            String MeetingId = params[2];
+            try {
+                post_data = URLEncoder.encode("Email", "UTF-8") + "=" + URLEncoder.encode(Email, "UTF-8") + "&"
+                        + URLEncoder.encode("MeetingId", "UTF-8") + "=" + URLEncoder.encode(MeetingId, "UTF-8");
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
+            return connect();
+        }
+        else if(query_name.equals("meetingFriends")){
+            php_name = "meetingFriends.php";
+            String MeetingId = params[1];
+            try {
+                post_data = URLEncoder.encode("MeetingId", "UTF-8") + "=" + URLEncoder.encode(MeetingId, "UTF-8");
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
+            return connect();
+        }
+        else if(query_name.equals("myMessages")){
+            php_name = "myMessages.php";
+            String Email = params[1];
+            try {
+                post_data = URLEncoder.encode("Email", "UTF-8") + "=" + URLEncoder.encode(Email, "UTF-8");
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
+            return connect();
+        }
+        else if(query_name.equals("invateFriend") || query_name.equals("sendMessage")){
+            String result="error";
+            String MessageId = "";
+            php_name="messageId.php";
+            while (result == "error"){
+                Random random = new Random();
+                MessageId = Integer.toString(random.nextInt(2147483646));
+                try {
+                    post_data = URLEncoder.encode("MessageId", "UTF-8") + "=" + URLEncoder.encode(MessageId, "UTF-8");
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                }
+                result = connect();
+            }
+            if(query_name.equals("invateFriend"))
+                php_name = "invateFriend.php";
+            else
+                php_name = "sendMessage.php";
+            try {
+                post_data = URLEncoder.encode("MessageId", "UTF-8") + "=" + URLEncoder.encode(MessageId, "UTF-8") + "&"
+                        + URLEncoder.encode("Email", "UTF-8") + "=" + URLEncoder.encode(params[1], "UTF-8") + "&"
+                        + URLEncoder.encode("Subject", "UTF-8") + "=" + URLEncoder.encode(params[2], "UTF-8") + "&"
+                        + URLEncoder.encode("Date", "UTF-8") + "=" + URLEncoder.encode(params[3], "UTF-8") + "&"
+                        + URLEncoder.encode("Author", "UTF-8") + "=" + URLEncoder.encode(params[4], "UTF-8") + "&"
+                        + URLEncoder.encode("IsRead", "UTF-8") + "=" + URLEncoder.encode(params[5], "UTF-8") + "&"
+                        + URLEncoder.encode("Body", "UTF-8") + "=" + URLEncoder.encode(params[6], "UTF-8") + "&"
+                        + URLEncoder.encode("Type", "UTF-8") + "=" + URLEncoder.encode(params[7], "UTF-8");
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
+            return connect();
+        }
+        else if(query_name.equals("findEmail")) {
+            php_name = "findEmail.php";
+            try {
+                post_data = URLEncoder.encode("UserName", "UTF-8") + "=" + URLEncoder.encode(params[8], "UTF-8");
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
+            String result = connect();
+            if(result.equals("error")){
+                return result;
+            }
+            else{
+                params[1] = result;
+                result="error";
+                String MessageId = "";
+                php_name="messageId.php";
+                while (result == "error"){
+                    Random random = new Random();
+                    MessageId = Integer.toString(random.nextInt(2147483646));
+                    try {
+                        post_data = URLEncoder.encode("MessageId", "UTF-8") + "=" + URLEncoder.encode(MessageId, "UTF-8");
+                    } catch (UnsupportedEncodingException e) {
+                        e.printStackTrace();
+                    }
+                    result = connect();
+                }
+                query_name = "invateFriend";
+                php_name = "invateFriend.php";
+                try {
+                    post_data = URLEncoder.encode("MessageId", "UTF-8") + "=" + URLEncoder.encode(MessageId, "UTF-8") + "&"
+                            + URLEncoder.encode("Email", "UTF-8") + "=" + URLEncoder.encode(params[1], "UTF-8") + "&"
+                            + URLEncoder.encode("Subject", "UTF-8") + "=" + URLEncoder.encode(params[2], "UTF-8") + "&"
+                            + URLEncoder.encode("Date", "UTF-8") + "=" + URLEncoder.encode(params[3], "UTF-8") + "&"
+                            + URLEncoder.encode("Author", "UTF-8") + "=" + URLEncoder.encode(params[4], "UTF-8") + "&"
+                            + URLEncoder.encode("IsRead", "UTF-8") + "=" + URLEncoder.encode(params[5], "UTF-8") + "&"
+                            + URLEncoder.encode("Body", "UTF-8") + "=" + URLEncoder.encode(params[6], "UTF-8") + "&"
+                            + URLEncoder.encode("Type", "UTF-8") + "=" + URLEncoder.encode(params[7], "UTF-8");
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                }
+                return connect();
+            }
+        }
+        else if(query_name.equals("addFriend")){
+            php_name = "addFriend.php";
+            try {
+                post_data = URLEncoder.encode("Email", "UTF-8") + "=" + URLEncoder.encode(params[1], "UTF-8") + "&"
+                        + URLEncoder.encode("UserName", "UTF-8") + "=" + URLEncoder.encode(params[2], "UTF-8") + "&"
+                        + URLEncoder.encode("UserName2", "UTF-8") + "=" + URLEncoder.encode(params[3], "UTF-8");
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
+            return connect();
+        }
+        else if(query_name.equals("deleteMessage")){
+            php_name = "deleteMessage.php";
+            try {
+                post_data = URLEncoder.encode("MessageId", "UTF-8") + "=" + URLEncoder.encode(params[1], "UTF-8");
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
+            return connect();
+        }
+        else if(query_name.equals("userFriends")){
+            php_name = "userFriends.php";
+            try {
+                post_data = URLEncoder.encode("Email", "UTF-8") + "=" + URLEncoder.encode(params[1], "UTF-8");
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
+            return connect();
+        }
+        else if (query_name.equals("deleteFriend")){
+            php_name = "deleteFriend.php";
+            try {
+                post_data = URLEncoder.encode("Email", "UTF-8") + "=" + URLEncoder.encode(params[1], "UTF-8") + "&"
+                        + URLEncoder.encode("UserName", "UTF-8") + "=" + URLEncoder.encode(params[2], "UTF-8") + "&"
+                        + URLEncoder.encode("UserName2", "UTF-8") + "=" + URLEncoder.encode(params[3], "UTF-8");
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
             }
@@ -320,6 +522,37 @@ public class database extends AsyncTask<String,Void,String> {
                 ((UserMain) activity).getSupportFragmentManager().beginTransaction().add(R.id.mainFragment, fragment).addToBackStack("back").commit();
             }
         }
+        else if(query_name.equals("meetingFriends")){
+            Intent intent = new Intent(mContext,meetingFriends.class);
+            intent.putExtra("friends",result);
+            mContext.startActivity(intent);
+        }
+        else if(query_name.equals("userFriends")){
+            Intent intent = new Intent(mContext,UserFriends.class);
+            intent.putExtra("friends",result);
+            mContext.startActivity(intent);
+        }
+        else if(query_name.equals("allMeetings")){
+            Bundle bundle = new Bundle();
+            bundle.putString("MeetingsInfo",result);
+            UserMeetingsFragment fragment = new UserMeetingsFragment();
+            fragment.setArguments(bundle);
+            Activity activity = (searchMeeting)mActivity;
+            ((searchMeeting)activity).getSupportFragmentManager().beginTransaction().add(R.id.meetingList, fragment).addToBackStack("back").commit();
+        }
+        else if (query_name.equals("searchMeeting")){
+            if(result.equals("noMeetings")){
+                popUp pop = new popUp(mContext,"Message","No meetings found");
+            }
+            else {
+                Bundle bundle = new Bundle();
+                bundle.putString("MeetingsInfo", result);
+                UserMeetingsFragment fragment = new UserMeetingsFragment();
+                fragment.setArguments(bundle);
+                Activity activity = (searchMeeting) mActivity;
+                ((searchMeeting) activity).getSupportFragmentManager().beginTransaction().replace(R.id.meetingList, fragment).commit();
+            }
+        }
         else if(query_name.equals("newMeeting")){
             if(result.equals("ok")){
                 popUp pop = new popUp((mContext),"ok","Meeting Added");
@@ -327,6 +560,135 @@ public class database extends AsyncTask<String,Void,String> {
             else if(result.equals("error")){
                 popUp pop = new popUp((mContext),"not ok", result);
             }
+        }
+        else if(query_name.equals("checkIfMeetingFriend")){
+            if(result.equals("yes")){
+                Bundle bundle = new Bundle();
+                bundle.putString("Creator", params[3]);
+                bundle.putString("afterAge", params[4]);
+                bundle.putString("belowAge", params[5]);
+                bundle.putString("gender", params[6]);
+                bundle.putString("meetingId",params[7]);
+                freindMeetingFragment fragment = new freindMeetingFragment();
+                fragment.setArguments(bundle);
+                Activity activity = (meetingInfo) mActivity;
+                ((meetingInfo) activity).getSupportFragmentManager().beginTransaction().add(R.id.buttonsFrame, fragment).addToBackStack("back").commit();
+            }
+            else if(result.equals("no")){
+                Bundle bundle = new Bundle();
+                bundle.putString("afterAge", params[4]);
+                bundle.putString("belowAge", params[5]);
+                bundle.putString("gender", params[6]);
+                bundle.putString("meetingId",params[7]);
+                notFriendFragment fragment = new notFriendFragment();
+                fragment.setArguments(bundle);
+                Activity activity = (meetingInfo) mActivity;
+                ((meetingInfo) activity).getSupportFragmentManager().beginTransaction().add(R.id.buttonsFrame, fragment).addToBackStack("back").commit();
+            }
+        }
+
+        else if (query_name.equals("joinMeeting")){
+            if(result.equals("ok")){
+                Bundle bundle = new Bundle();
+                bundle.putString("Creator", "false");
+                bundle.putString("afterAge", params[3]);
+                bundle.putString("belowAge", params[4]);
+                bundle.putString("gender", params[5]);
+                bundle.putString("meetingId",params[2]);
+                freindMeetingFragment fragment = new freindMeetingFragment();
+                fragment.setArguments(bundle);
+                Activity activity = (meetingInfo) mActivity;
+                ((meetingInfo) activity).getSupportFragmentManager().beginTransaction().replace(R.id.buttonsFrame, fragment).commit();
+            }
+        }
+        else if (query_name.equals("leaveMeeting")){
+            if(result.equals("ok")){
+                Bundle bundle = new Bundle();
+                bundle.putString("afterAge", params[3]);
+                bundle.putString("belowAge", params[4]);
+                bundle.putString("gender", params[5]);
+                bundle.putString("meetingId",params[2]);
+                notFriendFragment fragment = new notFriendFragment();
+                fragment.setArguments(bundle);
+                Activity activity = (meetingInfo) mActivity;
+                ((meetingInfo) activity).getSupportFragmentManager().beginTransaction().replace(R.id.buttonsFrame, fragment).commit();
+            }
+        }
+        else if (query_name.equals("deleteMeeting")){
+            if(result.equals("ok")){
+                mContext.startActivity(new Intent(mContext,UserMain.class));
+                ((Activity)mContext).finish();
+            }
+        }
+        else if(query_name.equals("myMessages")){
+            if(result.equals("error")){
+                popUp pop = new popUp(mContext,"Error","error");
+            }
+            else{
+                Intent intent = new Intent(mContext,MessageBox.class);
+                intent.putExtra("messages",result);
+                mContext.startActivity(intent);
+            }
+        }
+        else if(query_name.equals("invateFriend")){
+            String header = mContext.getResources().getString(R.string.message);
+            if(result.equals("Friends")){
+                String body = mContext.getResources().getString(R.string.allreadyFriends);
+                popUp pop = new popUp(mContext,header,body);
+            }
+            else if (result.equals("ok")){
+                String body = mContext.getResources().getString(R.string.friendSend);
+                popUp pop = new popUp(mContext,header,body);
+            }
+            else if (result.equals("error1")){
+                String body = mContext.getResources().getString(R.string.InvitationSent);
+                popUp pop = new popUp(mContext,header,body);
+            }
+            else{
+                popUp pop = new popUp(mContext,"error",result);
+            }
+        }
+        else if(query_name.equals("addFriend")){
+            if(result.equals("ok")){
+                popUp pop = new popUp(mActivity,"friendAdded",result);
+                database db = new database(mContext,mActivity);
+                db.execute("myMessages",params[1]);
+                mActivity.finish();
+
+
+            }
+            else {
+                popUp pop = new popUp(mActivity, "error", result);
+            }
+        }
+        else if(query_name.equals("deleteMessage")){
+            if(result.equals("ok")){
+                popUp pop = new popUp(mActivity,"MessageDeleted",result);
+                database db = new database(mContext,mActivity);
+                db.execute("myMessages",params[2]);
+                mActivity.finish();
+            }
+            else {
+                popUp pop = new popUp(mActivity, "error", result);
+            }
+        }
+        else if(query_name.equals("deleteFriend")){
+            if(result.equals("ok")){
+                database db = new database(mContext,mActivity);
+                db.execute("userFriends",params[1]);
+                mActivity.finish();
+            }
+        }
+        else if(query_name.equals("sendMessage")){
+            if(result.equals("ok")){
+                popUp pop = new popUp(mContext,mContext.getResources().getString(R.string.message),"message sent");
+            }
+            else {
+                popUp pop = new popUp(mContext, mContext.getResources().getString(R.string.message), "not Sent");
+            }
+        }
+        else if(query_name.equals("findEmail")){
+            showDialog.showErrorDialog(mContext,mContext.getResources().getString(R.string.userNameNotExist));
         }
 
     }

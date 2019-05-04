@@ -8,4 +8,9 @@
     <color name="colorBlack">#000000</color>
     <color name="doneButton">#7cc4ff</color>
     <color name="colorGray">#7f7f7f</color>
+    <color name="colorSearch">#b7edff</color>
+    <color name="colorGreen">#47ff65</color>
+    <color name="lightGray">#cccdce</color>
+    <color name="ColorSea">#54ddbd</color>
+    <color name="Red">#ff3838</color>
 </resources>

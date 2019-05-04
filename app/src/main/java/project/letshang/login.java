@@ -22,6 +22,7 @@ public class login extends AppCompatActivity {
         loadLocale();
         setContentView(R.layout.activity_login);
         if(userInfoFile.userConnected(this) == true){
+            finish();
             startActivity(new Intent(this,UserMain.class));
         }
 
@@ -31,7 +32,11 @@ public class login extends AppCompatActivity {
         String userEmail = ((EditText)findViewById(R.id.email)).getText().toString();
         String userPassword = ((EditText)findViewById(R.id.password)).getText().toString();
         database user = new database(this,this);
-        user.execute("LogIn",userEmail,userPassword);
+        if(inputChecks.ilegalChar(userEmail) || inputChecks.ilegalChar(userPassword)){
+            showDialog.showErrorDialog(this,getString(R.string.ilegalChar));
+        }
+        else
+            user.execute("LogIn",userEmail,userPassword);
     }
 
     public void onClickChangeLanguage(View view){

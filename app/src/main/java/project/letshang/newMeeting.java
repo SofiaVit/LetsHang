@@ -7,6 +7,7 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.AppCompatSpinner;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -24,6 +25,7 @@ import com.google.android.libraries.places.widget.AutocompleteSupportFragment;
 import com.google.android.libraries.places.widget.listener.PlaceSelectionListener;
 
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Calendar;
 
@@ -38,11 +40,10 @@ public class newMeeting extends AppCompatActivity implements AdapterView.OnItemS
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_meeting);
-        Spinner spinner = (Spinner)findViewById(R.id.themeSpinner);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.themesChoose,android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
+
+        AppCompatSpinner spinner = (AppCompatSpinner) findViewById(R.id.themeSpinner);
         spinner.setOnItemSelectedListener(this);
+
         final Context context = this;
         if (!Places.isInitialized()) {
             Places.initialize(getApplicationContext(), "AIzaSyAyT-mNFecACyZjyCHNCsW_4_B6aFUmVcw");
@@ -81,7 +82,7 @@ public class newMeeting extends AppCompatActivity implements AdapterView.OnItemS
         final TextView timeChooser = (TextView) findViewById(R.id.timeChooser);
         Calendar mCurrentTime = Calendar.getInstance();
         int hour = mCurrentTime.get(Calendar.HOUR_OF_DAY);
-        int minute = mCurrentTime.get(Calendar.MINUTE);
+        int minute = Integer.parseInt(new SimpleDateFormat("mm").format(mCurrentTime.getTime()));
         TimePickerDialog timePickerDialog = new TimePickerDialog(this, new TimePickerDialog.OnTimeSetListener() {
             @Override
             public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
@@ -113,7 +114,7 @@ public class newMeeting extends AppCompatActivity implements AdapterView.OnItemS
         String date = ((TextView)findViewById(R.id.dateChooser)).getText().toString();
         String Email = userInfoFile.getUserEmail(this);
         String belowAge = ((EditText)findViewById(R.id.belowAge)).getText().toString();
-        String afterAge = ((EditText)findViewById(R.id.belowAge)).getText().toString();
+        String afterAge = ((EditText)findViewById(R.id.afterAge)).getText().toString();
         String userName = userInfoFile.getUserName(this);
         if(!(checkBox.isChecked()))
             gender = "";

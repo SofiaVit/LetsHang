@@ -40,25 +40,41 @@ public class userMenuFragment extends Fragment {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if(id == R.id.account_menu){
-            getActivity().startActivity(new Intent(getActivity(),userAccount.class));
-        }
-        else if(id == R.id.logOut_menu){
-            AccessToken token = AccessToken.getCurrentAccessToken();
-            if(token != null){
-                LoginManager.getInstance().logOut();
-            }
-            userInfoFile.deleteFile(getActivity());
-            getActivity().startActivity(new Intent(getActivity(),login.class));
+        switch (item.getItemId()) {
+            case R.id.account_menu:
+                getActivity().startActivity(new Intent(getActivity(), userAccount.class));
+                return true;
+            case R.id.logOut_menu:
+                AccessToken token = AccessToken.getCurrentAccessToken();
+                if (token != null) {
+                    LoginManager.getInstance().logOut();
+                }
+                userInfoFile.deleteFile(getActivity());
+                getActivity().startActivity(new Intent(getActivity(), login.class));
+                return true;
+            case R.id.myMeetings_menu:
+                getActivity().startActivity(new Intent(getActivity(), UserMain.class));
+                return true;
+            case R.id.newMeeting_menu:
+                getActivity().startActivity(new Intent(getActivity(), newMeeting.class));
+                return true;
+            case R.id.searchMeeting_menu:
+                getActivity().startActivity(new Intent(getActivity(), searchMeeting.class));
+                return true;
+            case R.id.messageBox_menu:
+                database db = new database(getActivity(), getActivity());
+                db.execute("myMessages", userInfoFile.getUserEmail(getActivity()));
+                return true;
+            case R.id.myFriends_menu:
+                database dt = new database(getActivity(), getActivity());
+                dt.execute("userFriends", userInfoFile.getUserEmail(getActivity()));
+                return true;
+            case android.R.id.home:
+                getActivity().onBackPressed();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
 
         }
-        else if (id == R.id.myMeetings_menu){
-            getActivity().startActivity(new Intent(getActivity(),UserMain.class));
-        }
-        else if(id == R.id.newMeeting_menu){
-            getActivity().startActivity(new Intent(getActivity(),newMeeting.class));
-        }
-        return super.onOptionsItemSelected(item);
     }
 }

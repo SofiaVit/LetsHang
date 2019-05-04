@@ -24,6 +24,13 @@ public class NoMeetingsFragment extends Fragment {
                 startActivity(new Intent(getActivity(),newMeeting.class));
             }
         });
+        Button findButton = (Button)view.findViewById(R.id.findMeetingButton);
+        findButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(),searchMeeting.class));
+            }
+        });
         return view;
     }
 

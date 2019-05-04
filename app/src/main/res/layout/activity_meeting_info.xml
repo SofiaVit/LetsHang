@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".meetingInfo">
+
+    <fragment
+        android:id="@+id/menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:name="project.letshang.userMenuFragment"/>
+
+    <RelativeLayout
+        android:id="@+id/infoLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/themeLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentLeft="true">
+
+    <TextView
+        android:id="@+id/ThemeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textColor="@color/colorBlack"
+        android:text="@string/Theme"/>
+
+    <TextView
+        android:id="@+id/subThemeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textColor="@color/colorBlack"
+        android:text="@string/Theme"/>
+    </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_alignParentRight="true">
+    <TextView
+        android:id="@+id/timeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textColor="@color/colorBlack"
+        android:text="@string/Theme"/>
+
+    <TextView
+        android:id="@+id/dateText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textColor="@color/colorBlack"
+        android:text="@string/Theme"/>
+
+        </LinearLayout>
+
+    <TextView
+        android:id="@+id/descriptionText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/themeLayout"
+        android:text="@string/Description"
+        android:textSize="20sp"
+        android:textColor="@color/colorBlack"
+        android:layout_centerHorizontal="true"/>
+
+        <LinearLayout
+            android:id="@+id/mainLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_below="@id/descriptionText"
+            android:layout_centerInParent="true">
+        <TextView
+            android:id="@+id/constrainsText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/constraints"
+            android:textSize="20sp"
+            android:textColor="@color/colorBlack"
+            android:layout_below="@id/descriptionText"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+        <TextView
+            android:id="@+id/ageRange"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/betweenAge"
+            android:textSize="20sp"
+            android:textColor="@color/colorBlack"/>
+
+        <TextView
+            android:id="@+id/ageRangeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="age"
+            android:layout_marginLeft="20dp"
+            android:textSize="20sp"
+            android:textColor="@color/colorBlack"
+            />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+        <TextView
+            android:id="@+id/gender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/MeetingOnlyFor"
+            android:textSize="20sp"
+            android:textColor="@color/colorBlack"
+            />
+
+        <TextView
+            android:id="@+id/genderText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/MeetingOnlyFor"
+            android:layout_marginLeft="20dp"
+            android:textSize="20sp"
+            android:textColor="@color/colorBlack"
+           />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/buttonsFrame"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/infoLayout"
+        android:layout_centerInParent="true">
+    </FrameLayout>
+
+
+
+</RelativeLayout>

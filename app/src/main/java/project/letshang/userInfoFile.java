@@ -71,6 +71,13 @@ public class userInfoFile {
         return info.get(3);
     }
 
+    public static String getUserBirthday(Context mContext){
+        ArrayList <String> info = getUserInfo(mContext);
+        if(info.size() == 5)
+            return info.get(2);
+        return info.get(1);
+    }
+
     public static String getUserName(Context mContext){
         ArrayList <String> info = getUserInfo(mContext);
         if(info.size() == 5)

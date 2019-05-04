@@ -58,12 +58,56 @@
     <string name="myMeetings">My meetings</string>
     <string name="done">Done</string>
     <string name="MeetingOnlyFor">Meeting only for:</string>
-    <string name="afterAge">Meeting only people over age:</string>
-    <string name="belowAge">Meeting only people under the age of:</string>
+    <string name="afterAge">Over age:</string>
+    <string name="belowAge">Under age:</string>
     <string name="place">Place:</string>
     <string name="Creator">Meeting owner:</string>
     <string name="Any">Any</string>
     <string name="betweenAge">Only for ages in range:</string>
+    <string name="timeSpan">Time span</string>
+    <string name="search">Search</string>
+    <string name="Place">place</string>
+    <string name="startTime">Start time</string>
+    <string name="constraints">Joining constraints</string>
+    <string name="join">Join</string>
+    <string name="leave">Leave the meeting</string>
+    <string name="members">Members</string>
+    <string name="forum">Forum</string>
+    <string name="reportingContent">Reporting inappropriate content</string>
+    <string name="delete">Delete meeting</string>
+    <string name="noMessages">You have no messages</string>
+    <string name="newText">New</string>
+    <string name="messageBox">Message Box</string>
+    <string name="friendInvate">Friend Invitation</string>
+    <string name="friendInvateBody">Friend invitation from:</string>
+    <string name="friendSend">Friend invatation sent</string>
+    <string name="allreadyFriends">You are allready friends</string>
+    <string name="message">Message</string>
+    <string name="InvitationSent">Invitation allready sent</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="Add">Add</string>
+    <string name="toFriends">to friends</string>
+    <string name="MyFriends">My Friends</string>
+    <string name="noFriends">You don\'t have any friends</string>
+    <string name="deleteFriend">Delete this friend?</string>
+    <string name="send">Send</string>
+    <string name="addFriend">Add friend</string>
+    <string name="JoinUs">JOIN US</string>
+    <string name="socialNetwork">connect with social network</string>
+    <string name="signUp">SIGN UP</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="Open" translatable="false">Open</string>
+    <string name="Close">Close</string>
+    <string name="ilegalChar">\"%\" character is not alowd</string>
+    <string name="passError">Password must be at least 8 characters long</string>
+    <string name="emptyUserName">No user name entered</string>
+    <string name="userNameNotExist">User does not exist</string>
+    <string name="simpleDelete">Delete</string>
+    <string name="repeat">Repeat</string>
+    <string name="noMeetinsAtAll">There are no meetings in the app</string>
+    <string name="meetingConstrains">Joining Constrains</string>
+    <string name="newMeetingLabel">New Meeting</string>
 
 </resources>

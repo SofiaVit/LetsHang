@@ -9,6 +9,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
 
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
@@ -33,6 +35,13 @@ public class FacebookFragment extends Fragment {
         mLoginButton = (LoginButton)view.findViewById(R.id.login_button);
         mLoginButton.setReadPermissions("email");
         mLoginButton.setFragment(this);
+
+        ((ImageView)view.findViewById(R.id.facebookButton)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mLoginButton.performClick();
+            }
+        });
 
         mLoginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override

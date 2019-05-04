@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/list_back">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
+
+    <TextView
+        android:id="@+id/userNameText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="friend"
+        android:textColor="@color/colorBlack"
+        android:layout_marginLeft="20dp"
+        android:layout_alignParentLeft="true"/>
+
+   <ImageView
+       android:id="@+id/addFriendImage"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:src="@drawable/ic_addfriend"
+       android:layout_marginRight="20dp"
+       android:layout_toLeftOf="@id/deletefriendImage"
+       />
+    <ImageView
+        android:id="@+id/deletefriendImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_deletefriend"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="20dp"
+        />
+    <ImageView
+        android:id="@+id/emailImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/email_image"
+        android:layout_marginRight="20dp"
+        android:layout_toLeftOf="@id/addFriendImage"
+        />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

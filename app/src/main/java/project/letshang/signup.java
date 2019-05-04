@@ -5,18 +5,17 @@ import android.content.Intent;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.AppCompatSpinner;
 import android.support.v7.widget.CardView;
 import android.text.InputType;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.Spinner;
-import android.widget.TextView;
-import android.widget.AdapterView;
 
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class signup extends AppCompatActivity implements DatePickerDialog.OnDateSetListener, AdapterView.OnItemSelectedListener {
@@ -31,14 +30,11 @@ public class signup extends AppCompatActivity implements DatePickerDialog.OnDate
         ((EditText)findViewById(R.id.userBirthdayText)).setInputType(InputType.TYPE_NULL);
         if(bundle != null){
             facebook=true;
-            ((CardView)findViewById(R.id.userPassword)).setVisibility(View.GONE);
+            ((EditText)findViewById(R.id.passwordText)).setVisibility(View.GONE);
             ((EditText) findViewById(R.id.emailText)).setText(bundle.getString("EMAIL"));
             ((EditText) findViewById(R.id.userBirthdayText)).setText(bundle.getString("BIRTHDAY"));
         }
-        Spinner spinner = (Spinner)findViewById(R.id.userGenderSpinner);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.genderChoice,android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
+        AppCompatSpinner spinner = (AppCompatSpinner) findViewById(R.id.userGenderSpinner);
         spinner.setOnItemSelectedListener(this);
     }
 
@@ -48,16 +44,18 @@ public class signup extends AppCompatActivity implements DatePickerDialog.OnDate
         String email = ((EditText)findViewById(R.id.emailText)).getText().toString();
         String password = ((EditText)findViewById(R.id.passwordText)).getText().toString();
         if(facebook==false && (userName.equals("") || email.equals("") || birthday.equals("") || password.equals("") || gender.equals("Gender"))){
-            popUp pop = new popUp(this,this.getResources().getString(R.string.errorTitle),
-                    this.getResources().getString(R.string.nullStringError));
+            showDialog.showErrorDialog(this,getString(R.string.nullStringError));
         }
         else if(facebook==true && (userName.equals("") || email.equals("") || birthday.equals("") || gender.equals("Gender"))){
-            popUp pop = new popUp(this,this.getResources().getString(R.string.errorTitle),
-                    this.getResources().getString(R.string.nullStringError));
+            showDialog.showErrorDialog(this,getString(R.string.nullStringError));
         }
         else if (!(inputChecks.checkEmail(email))){
-            popUp pop = new popUp(this,this.getResources().getString(R.string.errorTitle),
-                    this.getResources().getString(R.string.emailError));
+            showDialog.showErrorDialog(this,getString(R.string.emailError));
+        }
+        else if(facebook == false){
+            if(inputChecks.paswwordCheck(password)) {
+                showDialog.showErrorDialog(this, getString(R.string.passError));
+            }
         }
         else{
             database db = new database(this,this);
@@ -80,7 +78,8 @@ public class signup extends AppCompatActivity implements DatePickerDialog.OnDate
         c.set(Calendar.YEAR, year);
         c.set(Calendar.MONTH, month);
         c.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-        String currentDateString = DateFormat.getDateInstance(DateFormat.SHORT).format(c.getTime());
+        DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+        String currentDateString = df.format(c.getTime());
         ((EditText)findViewById(R.id.userBirthdayText)).setText(currentDateString);
     }
 
@@ -92,5 +91,27 @@ public class signup extends AppCompatActivity implements DatePickerDialog.OnDate
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        if(true){
+            finish();
+            startActivity(new Intent(this,login.class));
+        }
+        else {
+            super.onBackPressed();
+        }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }

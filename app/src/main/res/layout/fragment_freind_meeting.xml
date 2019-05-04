@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             xmlns:app="http://schemas.android.com/apk/res-auto"
+             tools:context=".freindMeetingFragment">
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/firstLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/membersButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/colorEditText"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="10dp"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/members"
+                android:textColor="@color/colorBlack"
+                android:textSize="20sp"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
+                />
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/forumButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/colorEditText"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="10dp"
+            android:layout_marginLeft="10dp"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/forumButton"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
+                android:text="@string/forum"
+                android:textColor="@color/colorBlack"
+                android:textSize="20sp"/>
+        </android.support.v7.widget.CardView>
+        </LinearLayout>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/reportButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/colorEditText"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="10dp"
+            android:layout_below="@+id/firstLayout"
+            android:layout_marginTop="10dp"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/forumButton"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
+                android:text="@string/reportingContent"
+                android:textColor="@color/colorBlack"
+                android:textSize="20sp"/>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/leaveButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/colorEditText"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="10dp"
+            android:layout_below="@id/reportButton"
+            android:layout_marginTop="10dp"
+            >
+
+            <TextView
+                android:id="@+id/leaveText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/forumButton"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
+                android:text="@string/leave"
+                android:textColor="@color/colorBlack"
+                android:textSize="20sp"/>
+        </android.support.v7.widget.CardView>
+
+    </RelativeLayout>
+
+</FrameLayout>

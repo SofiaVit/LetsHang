@@ -56,11 +56,53 @@
     <string name="myMeetings">המפגשים שלי</string>
     <string name="done">סיום</string>
     <string name="MeetingOnlyFor">מפגש רק ל:</string>
-    <string name="afterAge" translatable="false">מפגש רק לאנשים מעל גיל:</string>
-    <string name="belowAge">מפגש רק לאנשים מתחת לגיל:</string>
+    <string name="afterAge" translatable="false">מעל גיל:</string>
+    <string name="belowAge">מתחת לגיל:</string>
     <string name="place">מקום:</string>
     <string name="Creator">בעל המפגש:</string>
     <string name="Any">לכולם</string>
     <string name="betweenAge">רק לגילאים בטווח:</string>
+    <string name="timeSpan">טווח שעות</string>
+    <string name="search">" חיפוש"</string>
+    <string name="Place">מקום</string>
+    <string name="startTime">זמן התחלה</string>
+    <string name="constraints">אילוצי הצטרפות</string>
+    <string name="join">הצטרפות</string>
+    <string name="leave">ביטול הצטרפות</string>
+    <string name="members">חברי מפגש</string>
+    <string name="forum">פורום</string>
+    <string name="reportingContent">דיווח על תוכן לא הולם</string>
+    <string name="delete">מחיקת מפגש</string>
+    <string name="noMessages">אין הודעת בתיבה</string>
+    <string name="newText">חדש</string>
+    <string name="messageBox">תיבת הודעות</string>
+    <string name="friendInvate">הצעת חברות</string>
+    <string name="friendInvateBody">הצעת חברות מאת:</string>
+    <string name="friendSend">הצעת חברות נשלחה</string>
+    <string name="allreadyFriends">אתם כבר חברים</string>
+    <string name="message">הודעה</string>
+    <string name="InvitationSent">הצעת חברות כבר נשלחה</string>
+    <string name="yes">כן</string>
+    <string name="no">לא</string>
+    <string name="Add">להוסיף</string>
+    <string name="toFriends">לחברים</string>
+    <string name="MyFriends">החברים שלי</string>
+    <string name="noFriends">אין לך חברים</string>
+    <string name="deleteFriend">להסיר את החבר?</string>
+    <string name="send">שלח</string>
+    <string name="addFriend">הוספת חבר</string>
+    <string name="JoinUs">הצטרף אלינו</string>
+    <string name="socialNetwork">התחבר דרך רשת חברתית</string>
+    <string name="signUp">הרשמה</string>
+    <string name="ilegalChar">הסימן \"%\" אינו מורשה</string>
+    <string name="passError">על הסיסמה להיות באורך של 8 תווים לפחות</string>
+    <string name="emptyUserName">לא הוזן שם משתמש</string>
+    <string name="userNameNotExist">משתמש לא קיים</string>
+    <string name="simpleDelete">מחק</string>
+    <string name="repeat">לענות</string>
+    <string name="Close">לסגור</string>
+    <string name="noMeetinsAtAll">אין פגישות ביישום</string>
+    <string name="meetingConstrains">מגבלות הצטרפות</string>
+    <string name="newMeetingLabel">מפגש חדש</string>
 
 </resources>
