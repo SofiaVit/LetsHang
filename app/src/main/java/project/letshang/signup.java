@@ -38,7 +38,7 @@ public class signup extends AppCompatActivity implements DatePickerDialog.OnDate
         spinner.setOnItemSelectedListener(this);
     }
 
-    public void onClickSignUp(View view){
+    public void onClickSign(View view){
         String userName = ((EditText)findViewById(R.id.userNameText)).getText().toString();
         String birthday = ((EditText)findViewById(R.id.userBirthdayText)).getText().toString();
         String email = ((EditText)findViewById(R.id.emailText)).getText().toString();
@@ -52,10 +52,8 @@ public class signup extends AppCompatActivity implements DatePickerDialog.OnDate
         else if (!(inputChecks.checkEmail(email))){
             showDialog.showErrorDialog(this,getString(R.string.emailError));
         }
-        else if(facebook == false){
-            if(inputChecks.paswwordCheck(password)) {
+        else if(facebook == false && inputChecks.paswwordCheck(password)){
                 showDialog.showErrorDialog(this, getString(R.string.passError));
-            }
         }
         else{
             database db = new database(this,this);

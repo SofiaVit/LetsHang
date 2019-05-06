@@ -61,7 +61,7 @@
     <string name="place">" место:"</string>
     <string name="Creator">Владелец встречи:</string>
     <string name="Any">Для всех</string>
-    <string name="betweenAge">" Только для возрастов в диапазоне:"</string>
+    <string name="betweenAge">"  Возраст между:"</string>
     <string name="timeSpan">" промежуток времени"</string>
     <string name="search">" поиск"</string>
     <string name="Place">место</string>
@@ -71,7 +71,7 @@
     <string name="leave">Покинуть встречу</string>
     <string name="members">Участники</string>
     <string name="forum">форум</string>
-    <string name="reportingContent">Сообщение о неприемлемом контенте</string>
+    <string name="reportingContent">Рапортовать Встречу</string>
     <string name="delete">" Удалить встречу"</string>
     <string name="noMessages">" У вас нет сообщений"</string>
     <string name="newText">" новое"</string>
@@ -104,4 +104,6 @@
     <string name="noMeetinsAtAll">" В приложении нет встреч"</string>
     <string name="meetingConstrains">" Ограничения присоединения"</string>
     <string name="newMeetingLabel">" Новая Встреча"</string>
+    <string name="meetingDescription">" Описание Встречи"</string>
+    <string name="genderAllowd">Пол:</string>
 </resources>

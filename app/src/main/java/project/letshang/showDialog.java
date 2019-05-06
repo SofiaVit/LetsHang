@@ -9,9 +9,16 @@ import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class showDialog {
     private String messageId;
     private Context mContext;
+    private Activity mActivity;
 
    public static void showErrorDialog(Context mContext,String body){
        final Dialog dialog = new Dialog(mContext);
@@ -28,7 +35,23 @@ public class showDialog {
        dialog.show();
    }
 
-   public static void showReadMessageDialog(final Context mContext, String header, String body, String author, final String messageId){
+   public static  void showNotificationDialog(Context mContext,String header,String body){
+       final Dialog dialog = new Dialog(mContext);
+       dialog.setContentView(R.layout.dialog_error);
+       ((TextView)dialog.findViewById(R.id.headerText)).setText(header);
+       ((TextView)dialog.findViewById(R.id.bodyText)).setText(body);
+       RelativeLayout dismiss_button = (RelativeLayout)dialog.findViewById(R.id.dismissButton);
+       dismiss_button.setOnClickListener(new View.OnClickListener(){
+           @Override
+           public void onClick(View v) {
+               dialog.dismiss();
+
+           }
+       });
+       dialog.show();
+   }
+
+   public static void showReadMessageDialog(final Context mContext, final Activity mActivity, String header, String body, final String author, final String messageId){
        final Dialog dialog = new Dialog(mContext);
        dialog.setContentView(R.layout.dialog_read_message);
        ((TextView)dialog.findViewById(R.id.headerText)).setText(header);
@@ -43,14 +66,35 @@ public class showDialog {
            @Override
            public void onClick(View v) {
                database db = new database(mContext,null);
-               db.execute("deleteMessage",messageId);
+               db.execute("deleteMessage",messageId,userInfoFile.getUserEmail(mContext));
                dialog.dismiss();
            }
        });
        ((RelativeLayout)dialog.findViewById(R.id.repeatButton)).setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
-
+                dialog.dismiss();
+               final Dialog dialog = new Dialog(mContext);
+               dialog.setContentView(R.layout.dialog_message);
+               ((Button)dialog.findViewById(R.id.sendButton)).setOnClickListener(new View.OnClickListener() {
+                   @Override
+                   public void onClick(View v) {
+                       String theme = ((EditText)dialog.findViewById(R.id.ThemeText)).getText().toString();
+                       String body = ((EditText)dialog.findViewById(R.id.MessageText)).getText().toString();
+                       Date date = new Date();
+                       DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+                       database db = new database(mContext,mActivity);
+                       db.execute("findEmailMessage",null,theme,dateFormat.format(date),userInfoFile.getUserName(mContext),"False",body,"Message",author);
+                       dialog.dismiss();
+                   }
+               });
+               ((Button)dialog.findViewById(R.id.cancelButton)).setOnClickListener(new View.OnClickListener() {
+                   @Override
+                   public void onClick(View v) {
+                       dialog.dismiss();
+                   }
+               });
+               dialog.show();
            }
        });
 

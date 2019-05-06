@@ -2,6 +2,7 @@ package project.letshang;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -13,6 +14,8 @@ import android.view.ViewGroup;
 
 import com.facebook.AccessToken;
 import com.facebook.login.LoginManager;
+
+import java.util.Objects;
 
 public class userMenuFragment extends Fragment {
 
@@ -27,7 +30,7 @@ public class userMenuFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_user_menu, container, false);
     }
@@ -42,24 +45,24 @@ public class userMenuFragment extends Fragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.account_menu:
-                getActivity().startActivity(new Intent(getActivity(), userAccount.class));
+                Objects.requireNonNull(getActivity()).startActivity(new Intent(getActivity(), userAccount.class));
                 return true;
             case R.id.logOut_menu:
                 AccessToken token = AccessToken.getCurrentAccessToken();
                 if (token != null) {
                     LoginManager.getInstance().logOut();
                 }
-                userInfoFile.deleteFile(getActivity());
+                userInfoFile.deleteFile(Objects.requireNonNull(getActivity()));
                 getActivity().startActivity(new Intent(getActivity(), login.class));
                 return true;
             case R.id.myMeetings_menu:
-                getActivity().startActivity(new Intent(getActivity(), UserMain.class));
+                Objects.requireNonNull(getActivity()).startActivity(new Intent(getActivity(), UserMain.class));
                 return true;
             case R.id.newMeeting_menu:
-                getActivity().startActivity(new Intent(getActivity(), newMeeting.class));
+                Objects.requireNonNull(getActivity()).startActivity(new Intent(getActivity(), newMeeting.class));
                 return true;
             case R.id.searchMeeting_menu:
-                getActivity().startActivity(new Intent(getActivity(), searchMeeting.class));
+                Objects.requireNonNull(getActivity()).startActivity(new Intent(getActivity(), searchMeeting.class));
                 return true;
             case R.id.messageBox_menu:
                 database db = new database(getActivity(), getActivity());
@@ -70,7 +73,7 @@ public class userMenuFragment extends Fragment {
                 dt.execute("userFriends", userInfoFile.getUserEmail(getActivity()));
                 return true;
             case android.R.id.home:
-                getActivity().onBackPressed();
+                Objects.requireNonNull(getActivity()).onBackPressed();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

@@ -8,6 +8,7 @@ import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class freindMeetingFragment extends Fragment implements View.OnClickListener {
@@ -29,12 +30,12 @@ public class freindMeetingFragment extends Fragment implements View.OnClickListe
         gender = getArguments().getString("gender");
 
         if(creator.equals("true")){
-            ((TextView)view.findViewById(R.id.leaveText)).setText(getActivity().getString(R.string.delete));
+            ((Button)view.findViewById(R.id.leaveButton)).setText(getActivity().getString(R.string.delete));
         }
-        ((CardView)view.findViewById(R.id.leaveButton)).setOnClickListener(this);
-        ((CardView)view.findViewById(R.id.membersButton)).setOnClickListener(this);
-        ((CardView)view.findViewById(R.id.forumButton)).setOnClickListener(this);
-        ((CardView)view.findViewById(R.id.reportButton)).setOnClickListener(this);
+        ((Button)view.findViewById(R.id.leaveButton)).setOnClickListener(this);
+        ((Button)view.findViewById(R.id.membersButton)).setOnClickListener(this);
+        ((Button)view.findViewById(R.id.forumButton)).setOnClickListener(this);
+        ((Button)view.findViewById(R.id.reportButton)).setOnClickListener(this);
 
         return view;
     }

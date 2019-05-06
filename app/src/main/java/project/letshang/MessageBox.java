@@ -30,7 +30,7 @@ public class MessageBox extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_meesage_box);
-        this.mContext = this.getApplicationContext();
+        this.mContext = this;
         this.mActivity = this;
         final String messages = getIntent().getStringExtra("messages");
         if(messages.equals("Empty")){
@@ -88,10 +88,12 @@ public class MessageBox extends AppCompatActivity {
 
                     }
                     else if(messagesList.get(position).getType().equals("Message")){
-
+                        showDialog.showReadMessageDialog(mContext,mActivity,messagesList.get(position).getSubject(),messagesList.get(position).getBody(),messagesList.get(position).getAuthor(),messagesList.get(position).getMessageId());
                     }
                 }
             });
         }
     }
+
+
 }

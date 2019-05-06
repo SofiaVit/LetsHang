@@ -82,7 +82,6 @@
                 android:textSize="20sp"
                 android:inputType="textPassword"
                 android:paddingTop="15dp"
-                android:focusable="false"
                 android:textColor="@color/colorGray"
                 />
         </LinearLayout>
@@ -96,7 +95,7 @@
             android:layout_marginTop="30dp"
             android:layout_marginLeft="50dp"
             android:layout_marginRight="50dp"
-            android:onClick="onClickSignUp">
+            android:onClick="onClickSign">
 
             <TextView
                 android:layout_width="wrap_content"

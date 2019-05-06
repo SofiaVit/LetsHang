@@ -10,6 +10,7 @@ import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -28,7 +29,7 @@ public class notFriendFragment extends Fragment {
         final String belowAge = getArguments().getString("belowAge");
         final String gender = getArguments().getString("gender");
         final String meetingId = getArguments().getString("meetingId");
-        ((CardView)view.findViewById(R.id.joinButton)).setOnClickListener(new View.OnClickListener() {
+        ((Button)view.findViewById(R.id.joinButton)).setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View v) {

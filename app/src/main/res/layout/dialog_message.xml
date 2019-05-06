@@ -2,7 +2,9 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/back_alert"
+    android:padding="16dp">
 
     <EditText
         android:id="@+id/ThemeText"
@@ -37,6 +39,7 @@
         android:layout_height="wrap_content"
         android:layout_marginRight="20dp"
         android:text="@string/send"
+        android:background="@drawable/rectangle_button"
         />
 
     <Button
@@ -45,6 +48,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:text="@string/cancel"
+        android:background="@drawable/rectangle_button"
         />
     </LinearLayout>
 

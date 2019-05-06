@@ -12,13 +12,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:windowSoftInputMode="stateAlwaysHidden|adjustResize|adjustPan">
-        <activity android:name=".UserFriends"
+        <activity android:name=".Forum">
+        </activity>
+        <activity
+            android:name=".UserFriends"
             android:parentActivityName=".UserMain"
             android:windowSoftInputMode="adjustResize">
         </activity>
-        <activity android:name=".MessageBox"
-                  android:parentActivityName=".UserMain">
-
+        <activity
+            android:name=".MessageBox"
+            android:parentActivityName=".UserMain">
         </activity>
         <activity
             android:name=".meetingFriends"

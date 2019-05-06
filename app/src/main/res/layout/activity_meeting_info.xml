@@ -11,12 +11,24 @@
         android:id="@+id/menu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:name="project.letshang.userMenuFragment"/>
+        android:name="project.letshang.userMenuFragment"
+        android:layout_marginTop="10dp"/>
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
 
     <RelativeLayout
         android:id="@+id/infoLayout"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@drawable/rectangle_shape"
+        android:layout_margin="10dp"
+        android:padding="15dp">
 
     <LinearLayout
         android:id="@+id/themeLayout"
@@ -31,7 +43,8 @@
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:textColor="@color/colorBlack"
-        android:text="@string/Theme"/>
+        android:text="@string/Theme"
+        />
 
     <TextView
         android:id="@+id/subThemeText"
@@ -39,7 +52,7 @@
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:textColor="@color/colorBlack"
-        android:text="@string/Theme"/>
+        android:text="@string/subTheme"/>
     </LinearLayout>
 
         <LinearLayout
@@ -53,7 +66,7 @@
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:textColor="@color/colorBlack"
-        android:text="@string/Theme"/>
+        android:text="@string/timeHint"/>
 
     <TextView
         android:id="@+id/dateText"
@@ -61,35 +74,91 @@
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:textColor="@color/colorBlack"
-        android:text="@string/Theme"/>
+        android:text="@string/date"/>
 
         </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/descriptionLine"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/themeLayout">
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_centerVertical="true"
+                android:background="@color/colorGray"
+                android:layout_toLeftOf="@+id/constText1">
+            </View>
+            <TextView
+                android:id="@+id/constText1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/meetingDescription"
+                android:layout_centerInParent="true"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_centerVertical="true"
+                android:background="@color/colorGray"
+                android:layout_toRightOf="@+id/constText1">
+            </View>
+        </RelativeLayout>
 
     <TextView
         android:id="@+id/descriptionText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/themeLayout"
+        android:layout_below="@id/descriptionLine"
         android:text="@string/Description"
         android:textSize="20sp"
         android:textColor="@color/colorBlack"
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"/>
+
+        <RelativeLayout
+            android:id="@+id/constrains"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/descriptionText">
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_centerVertical="true"
+                android:background="@color/colorGray"
+                android:layout_toLeftOf="@+id/constText">
+            </View>
+            <TextView
+                android:id="@+id/constText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/constraints"
+                android:layout_centerInParent="true"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_centerVertical="true"
+                android:background="@color/colorGray"
+                android:layout_toRightOf="@+id/constText">
+            </View>
+
+        </RelativeLayout>
 
         <LinearLayout
             android:id="@+id/mainLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_below="@id/descriptionText"
-            android:layout_centerInParent="true">
-        <TextView
-            android:id="@+id/constrainsText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/constraints"
-            android:textSize="20sp"
-            android:textColor="@color/colorBlack"
-            android:layout_below="@id/descriptionText"/>
+            android:layout_below="@id/constrains"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="10dp">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -122,7 +191,7 @@
             android:id="@+id/gender"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/MeetingOnlyFor"
+            android:text="@string/genderAllowd"
             android:textSize="20sp"
             android:textColor="@color/colorBlack"
             />
@@ -131,7 +200,7 @@
             android:id="@+id/genderText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/MeetingOnlyFor"
+            android:text="@string/gender"
             android:layout_marginLeft="20dp"
             android:textSize="20sp"
             android:textColor="@color/colorBlack"
@@ -150,5 +219,6 @@
     </FrameLayout>
 
 
-
+    </RelativeLayout>
+    </ScrollView>
 </RelativeLayout>

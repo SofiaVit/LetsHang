@@ -61,7 +61,7 @@
     <string name="place">מקום:</string>
     <string name="Creator">בעל המפגש:</string>
     <string name="Any">לכולם</string>
-    <string name="betweenAge">רק לגילאים בטווח:</string>
+    <string name="betweenAge">גילאים בטווח:</string>
     <string name="timeSpan">טווח שעות</string>
     <string name="search">" חיפוש"</string>
     <string name="Place">מקום</string>
@@ -71,7 +71,7 @@
     <string name="leave">ביטול הצטרפות</string>
     <string name="members">חברי מפגש</string>
     <string name="forum">פורום</string>
-    <string name="reportingContent">דיווח על תוכן לא הולם</string>
+    <string name="reportingContent">דווח על פגישה</string>
     <string name="delete">מחיקת מפגש</string>
     <string name="noMessages">אין הודעת בתיבה</string>
     <string name="newText">חדש</string>
@@ -104,5 +104,7 @@
     <string name="noMeetinsAtAll">אין פגישות ביישום</string>
     <string name="meetingConstrains">מגבלות הצטרפות</string>
     <string name="newMeetingLabel">מפגש חדש</string>
+    <string name="meetingDescription">תיאור מפגש</string>
+    <string name="genderAllowd">מין:</string>
 
 </resources>

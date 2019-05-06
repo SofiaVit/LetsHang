@@ -2,7 +2,10 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/back_alert"
+    android:padding="15dp"
+    android:gravity="center">
 
     <TextView
         android:id="@+id/alertText"
@@ -12,6 +15,7 @@
         android:text="text"
         android:textStyle="bold|italic"
         android:layout_centerHorizontal="true"
+        android:layout_marginBottom="15dp"
         />
     <Button
         android:id="@+id/yesButton"
@@ -22,7 +26,8 @@
         android:layout_marginLeft="30dp"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:text="@string/yes"/>
+        android:text="@string/yes"
+        android:background="@drawable/rectangle_button"/>
     <Button
         android:id="@+id/noButton"
         android:layout_width="wrap_content"
@@ -32,6 +37,7 @@
         android:layout_marginRight="30dp"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:text="@string/no"/>
+        android:text="@string/no"
+        android:background="@drawable/rectangle_button"/>
 
 </RelativeLayout>

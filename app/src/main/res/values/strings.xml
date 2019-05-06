@@ -63,17 +63,17 @@
     <string name="place">Place:</string>
     <string name="Creator">Meeting owner:</string>
     <string name="Any">Any</string>
-    <string name="betweenAge">Only for ages in range:</string>
+    <string name="betweenAge">Age between:</string>
     <string name="timeSpan">Time span</string>
     <string name="search">Search</string>
     <string name="Place">place</string>
     <string name="startTime">Start time</string>
     <string name="constraints">Joining constraints</string>
     <string name="join">Join</string>
-    <string name="leave">Leave the meeting</string>
+    <string name="leave">Leave meeting</string>
     <string name="members">Members</string>
     <string name="forum">Forum</string>
-    <string name="reportingContent">Reporting inappropriate content</string>
+    <string name="reportingContent">"Report Meeting "</string>
     <string name="delete">Delete meeting</string>
     <string name="noMessages">You have no messages</string>
     <string name="newText">New</string>
@@ -109,5 +109,7 @@
     <string name="noMeetinsAtAll">There are no meetings in the app</string>
     <string name="meetingConstrains">Joining Constrains</string>
     <string name="newMeetingLabel">New Meeting</string>
+    <string name="meetingDescription">Meeting Description</string>
+    <string name="genderAllowd">Gender:</string>
 
 </resources>

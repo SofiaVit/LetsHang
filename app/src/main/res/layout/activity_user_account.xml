@@ -6,7 +6,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".userAccount"
-    android:background="@drawable/login_background">
+    android:background="@color/ColorSea">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/half_round">
 
     <fragment
         android:id="@+id/menu"
@@ -14,149 +19,159 @@
         android:layout_height="wrap_content"
         android:name="project.letshang.userMenuFragment"/>
 
-    <TextView
-        android:id="@+id/userAccountText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/userAccount"
-        android:layout_below="@id/menu"
-        android:paddingTop="20dp"
-        android:layout_centerInParent="true"
-        android:textSize="40sp"
-        android:textColor="@color/colorBlack"
-        android:textStyle="bold"
-        />
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/userAccountText"
-        android:paddingTop="40dp"
-        android:orientation="vertical"
-       >
-
-        <LinearLayout
-            android:id="@+id/userNameLayout"
+        <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:background="@drawable/rectangle_shape"
+            android:layout_marginTop="100dp"
+            android:padding="15dp"
+            >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/caonstantLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_alignParentLeft="true"
+            android:paddingLeft="10sp"
             >
 
             <TextView
-                android:layout_width="100dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/UserName"
-                android:textSize="15sp"
-                android:layout_marginStart="50dp"
+                android:textSize="20sp"
+                android:textColor="@color/colorBlack"
+                />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorBlack"
+                android:layout_marginBottom="15dp"
+                />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Birthday"
+                android:textSize="20sp"
                 android:textColor="@color/colorBlack"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorBlack"
+                android:layout_marginBottom="15dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/gender"
+                android:textSize="20sp"
+                android:textColor="@color/colorBlack"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorBlack"
+                android:layout_marginBottom="15dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Email"
+                android:textSize="20sp"
+                android:textColor="@color/colorBlack"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorBlack"
+                android:layout_marginBottom="15dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Password"
+                android:textSize="20sp"
+                android:textColor="@color/colorBlack"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorBlack"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_alignParentRight="true"
+            android:paddingRight="10dp"
+            >
 
             <TextView
                 android:id="@+id/userName"
-                android:layout_width="150dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="90dp"
                 android:textColor="@color/colorGray"
+                android:text="@string/UserName"
+                android:textSize="20sp"
                 />
 
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingTop="30dp"
-            >
-            <TextView
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:text="@string/Birthday"
-                android:textSize="15sp"
-                android:layout_marginStart="50dp"
-                android:textColor="@color/colorBlack"/>
 
             <TextView
                 android:id="@+id/userBirthday"
-                android:layout_width="150dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="90dp"
                 android:textColor="@color/colorGray"
+                android:text="@string/Birthday"
+                android:textSize="20sp"
+                android:layout_marginTop="15dp"
                 />
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingTop="30dp"
-            >
-            <TextView
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:text="@string/gender"
-                android:textSize="15sp"
-                android:layout_marginStart="50dp"
-                android:textColor="@color/colorBlack"/>
 
             <TextView
                 android:id="@+id/userGender"
-                android:layout_width="150dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="90dp"
                 android:textColor="@color/colorGray"
+                android:text="@string/gender"
+                android:textSize="20sp"
+                android:layout_marginTop="15dp"
                 />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingTop="30dp"
-            >
-            <TextView
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:text="@string/Email"
-                android:textSize="15sp"
-                android:layout_marginStart="50dp"
-                android:textColor="@color/colorBlack"/>
 
             <TextView
                 android:id="@+id/userEmail"
-                android:layout_width="150dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="90dp"
                 android:textColor="@color/colorGray"
+                android:text="@string/Email"
+                android:textSize="20sp"
+                android:layout_marginTop="15dp"
                 />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/passwordLayout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingTop="30dp"
-            >
-            <TextView
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:text="@string/Password"
-                android:textSize="15sp"
-                android:layout_marginStart="50dp"
-                android:textColor="@color/colorBlack"/>
 
             <TextView
                 android:id="@+id/password"
-                android:layout_width="150dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="90dp"
                 android:textColor="@color/colorBlack"
+                android:textSize="20sp"
                 android:text="*********"
                 android:onClick="onClickChangePassword"
+                android:layout_marginTop="25dp"
                 />
 
         </LinearLayout>
-    </LinearLayout>
+            </RelativeLayout>
+        </RelativeLayout>
 
-
+    </RelativeLayout>
 </RelativeLayout>

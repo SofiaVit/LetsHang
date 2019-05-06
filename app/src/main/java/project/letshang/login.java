@@ -21,7 +21,7 @@ public class login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         loadLocale();
         setContentView(R.layout.activity_login);
-        if(userInfoFile.userConnected(this) == true){
+        if(userInfoFile.userConnected(this)){
             finish();
             startActivity(new Intent(this,UserMain.class));
         }
@@ -82,7 +82,7 @@ public class login extends AppCompatActivity {
         }
     }
 
-    public void loadLocale(){
+    private void loadLocale(){
         SharedPreferences prefs = getSharedPreferences("settings", Activity.MODE_PRIVATE);
         String language = prefs.getString("My_Lang", "");
         setLanguage(language,0);

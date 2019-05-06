@@ -112,7 +112,7 @@ public class ListAdapterFriends extends BaseAdapter {
                             Date date = new Date();
                             DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
                             database db = new database(context,activity);
-                            db.execute("sendMessage",list.get(position).getEmail(),theme,dateFormat.format(date),userInfoFile.getUserName(context),"False",body,"Message");
+                            db.execute("findEmailMessage",null,theme,dateFormat.format(date),userInfoFile.getUserName(context),"False",body,"Message",list.get(position).getUserName());
                             dialog.dismiss();
                         }
                     });

@@ -286,7 +286,7 @@ public class database extends AsyncTask<String,Void,String> {
             }
             return connect();
         }
-        else if(query_name.equals("findEmail")) {
+        else if(query_name.equals("findEmail") || query_name.equals("findEmailMessage")) {
             php_name = "findEmail.php";
             try {
                 post_data = URLEncoder.encode("UserName", "UTF-8") + "=" + URLEncoder.encode(params[8], "UTF-8");
@@ -312,8 +312,15 @@ public class database extends AsyncTask<String,Void,String> {
                     }
                     result = connect();
                 }
-                query_name = "invateFriend";
-                php_name = "invateFriend.php";
+
+                if(query_name.equals("findEmail")) {
+                    query_name = "invateFriend";
+                    php_name = "invateFriend.php";
+                }
+                else if(query_name.equals("findEmailMessage")){
+                    query_name = "sendMessage";
+                    php_name = "sendMessage.php";
+                }
                 try {
                     post_data = URLEncoder.encode("MessageId", "UTF-8") + "=" + URLEncoder.encode(MessageId, "UTF-8") + "&"
                             + URLEncoder.encode("Email", "UTF-8") + "=" + URLEncoder.encode(params[1], "UTF-8") + "&"
@@ -343,7 +350,8 @@ public class database extends AsyncTask<String,Void,String> {
         else if(query_name.equals("deleteMessage")){
             php_name = "deleteMessage.php";
             try {
-                post_data = URLEncoder.encode("MessageId", "UTF-8") + "=" + URLEncoder.encode(params[1], "UTF-8");
+                post_data = URLEncoder.encode("MessageId", "UTF-8") + "=" + URLEncoder.encode(params[1], "UTF-8")+ "&"
+                    +URLEncoder.encode("Email", "UTF-8") + "=" + URLEncoder.encode(userInfoFile.getUserEmail(mContext), "UTF-8");
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
             }
@@ -663,13 +671,12 @@ public class database extends AsyncTask<String,Void,String> {
         }
         else if(query_name.equals("deleteMessage")){
             if(result.equals("ok")){
-                popUp pop = new popUp(mActivity,"MessageDeleted",result);
+                showDialog.showNotificationDialog(mContext,"Notification","Message deleted");
                 database db = new database(mContext,mActivity);
                 db.execute("myMessages",params[2]);
-                mActivity.finish();
             }
             else {
-                popUp pop = new popUp(mActivity, "error", result);
+               showDialog.showErrorDialog(mContext,result);
             }
         }
         else if(query_name.equals("deleteFriend")){

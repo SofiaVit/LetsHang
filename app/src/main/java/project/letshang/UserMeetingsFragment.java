@@ -3,6 +3,7 @@ package project.letshang;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -48,6 +49,12 @@ public class UserMeetingsFragment extends Fragment {
                     MeetingForList meeting = meetings.get(position);
                     intent.putExtra("Meeting", meeting);
                     startActivity(intent);
+                }
+            });
+            ((CardView)view.findViewById(R.id.newMeeting)).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    getActivity().startActivity(new Intent(getActivity(),newMeeting.class));
                 }
             });
         }
