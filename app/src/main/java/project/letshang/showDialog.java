@@ -3,6 +3,8 @@ package project.letshang;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -46,6 +48,36 @@ public class showDialog {
            public void onClick(View v) {
                dialog.dismiss();
 
+           }
+       });
+       dialog.show();
+   }
+
+   public static void showInviteMeetingDialog(final Context mContext,final Activity mActivity, final MeetingForList list){
+        final Dialog dialog = new Dialog(mContext);
+        dialog.setContentView(R.layout.dialog_meeting_invite);
+        String body = list.getCreator() + " " + mContext.getResources().getString(R.string.invitedToMeeting) + " '" + list.getSubTheme() + "'";
+       ((TextView)dialog.findViewById(R.id.bodyText)).setText(body);
+       ((Button)dialog.findViewById(R.id.cancelButton)).setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               dialog.dismiss();
+           }
+       });
+       ((Button)dialog.findViewById(R.id.deleteButton)).setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               database db = new database(mContext,null);
+               db.execute("deleteMessage",list.getMeetingId(),userInfoFile.getUserEmail(mContext));
+               dialog.dismiss();
+           }
+       });
+       ((Button)dialog.findViewById(R.id.goToMeetingButton)).setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               Intent intent = new Intent(mActivity, meetingInfo.class);
+               intent.putExtra("Meeting", list);
+               mContext.startActivity(intent);
            }
        });
        dialog.show();

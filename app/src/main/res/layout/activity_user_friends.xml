@@ -24,6 +24,7 @@
         android:visibility="invisible"
         />
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -36,12 +37,15 @@
         android:layout_weight="1"
         />
 
+
     <View
+        android:id="@+id/line"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/colorBlack"/>
 
     <LinearLayout
+        android:id="@+id/addFriendLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"

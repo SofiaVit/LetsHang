@@ -26,7 +26,7 @@ public class meetingFriends extends AppCompatActivity {
             id = id+1;
         }
         mListView = (ListView) findViewById(R.id.meetingFriendsList);
-        adapter = new ListAdapterFriends(this,this,friendsList,"Meeting",userInfoFile.getUserName(this));
+        adapter = new ListAdapterFriends(this,this,friendsList,"Meeting",userInfoFile.getUserName(this),null);
         mListView.setAdapter(adapter);
     }
 }

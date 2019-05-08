@@ -111,5 +111,15 @@
     <string name="newMeetingLabel">New Meeting</string>
     <string name="meetingDescription">Meeting Description</string>
     <string name="genderAllowd">Gender:</string>
+    <string name="InviteFriend">Invite Friend</string>
+    <string name="inviteMeetingQuestion">Invite friend to this meeting?</string>
+    <string name="MeetingInvitation">Meeting Invitation</string>
+    <string name="allreadyFriendMeeting">Yoyr friend is already participating in the meeting</string>
+    <string name="AllreadyInvitedMeeting">This friend allready got invitation to this meeting</string>
+    <string name="Notification">Notification</string>
+    <string name="invitedToMeeting">Friend invited to meeting</string>
+    <string name="goToMeeting">Show Meeting</string>
+    <string name="friend">Friend</string>
+    <string name="InvitedYou">invited you to meeting</string>
 
 </resources>

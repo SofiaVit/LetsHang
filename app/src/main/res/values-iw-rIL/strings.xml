@@ -106,5 +106,15 @@
     <string name="newMeetingLabel">מפגש חדש</string>
     <string name="meetingDescription">תיאור מפגש</string>
     <string name="genderAllowd">מין:</string>
+    <string name="InviteFriend">הזמנת חבר</string>
+    <string name="inviteMeetingQuestion">להזמין חבר למפגש זה?</string>
+    <string name="MeetingInvitation">הזמנה למפגש</string>
+    <string name="allreadyFriendMeeting">החבר כבר משתתף במפגש</string>
+    <string name="AllreadyInvitedMeeting">החבר כבר קיבל הזמנה למפגש זה</string>
+    <string name="Notification">הודעה</string>
+    <string name="invitedToMeeting">החבר קיבל הזמנה למפגש</string>
+    <string name="goToMeeting">הצג את המפגש</string>
+    <string name="friend">חבר</string>
+    <string name="InvitedYou">הזמין אותך למפגש</string>
 
 </resources>

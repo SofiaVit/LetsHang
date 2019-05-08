@@ -51,13 +51,13 @@ public class UserMeetingsFragment extends Fragment {
                     startActivity(intent);
                 }
             });
-            ((CardView)view.findViewById(R.id.newMeeting)).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    getActivity().startActivity(new Intent(getActivity(),newMeeting.class));
-                }
-            });
         }
+        ((CardView)view.findViewById(R.id.newMeeting)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(),newMeeting.class));
+            }
+        });
         return view;
     }
 

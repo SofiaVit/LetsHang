@@ -24,13 +24,15 @@ public class ListAdapterFriends extends BaseAdapter {
     private View view;
     private String FriendsType;
     private String userName;
+    private String meetingId;
 
-    public ListAdapterFriends(Context context,Activity activity, List<FriendForList> list, String FriendsType, String userName){
+    public ListAdapterFriends(Context context,Activity activity, List<FriendForList> list, String FriendsType, String userName, String meetingId){
         this.context = context;
         this.list = list;
         this.FriendsType = FriendsType;
         this.userName = userName;
         this.activity = activity;
+        this.meetingId = meetingId;
     }
     @Override
     public int getCount() {
@@ -126,6 +128,19 @@ public class ListAdapterFriends extends BaseAdapter {
                 }
             });
 
+        }
+        else{
+            ((ImageView) view.findViewById(R.id.deletefriendImage)).setVisibility(View.INVISIBLE);
+            ((ImageView)view.findViewById(R.id.addFriendImage)).setVisibility(View.INVISIBLE);
+            ((ImageView) view.findViewById(R.id.emailImage)).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+                    Date date = new Date();
+                    database db = new database(context, null);
+                    db.execute("findEmailMeetingInvite",null, context.getString(R.string.MeetingInvitation), dateFormat.format(date), userInfoFile.getUserName(context), "False", meetingId,"MeetingInvite",list.get(position).getUserName());
+                }
+            });
         }
         return view;
     }

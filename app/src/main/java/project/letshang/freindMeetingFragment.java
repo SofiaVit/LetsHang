@@ -36,6 +36,7 @@ public class freindMeetingFragment extends Fragment implements View.OnClickListe
         ((Button)view.findViewById(R.id.membersButton)).setOnClickListener(this);
         ((Button)view.findViewById(R.id.forumButton)).setOnClickListener(this);
         ((Button)view.findViewById(R.id.reportButton)).setOnClickListener(this);
+        ((Button)view.findViewById(R.id.inviteButton)).setOnClickListener(this);
 
         return view;
     }
@@ -61,6 +62,10 @@ public class freindMeetingFragment extends Fragment implements View.OnClickListe
                 break;
             case R.id.reportButton:
                     break;
+            case R.id.inviteButton:
+                database dt = new database(getActivity(), getActivity());
+                dt.execute("inviteFriendsMeeting", userInfoFile.getUserEmail(getActivity()),meetingId);
+                break;
         }
 
     }

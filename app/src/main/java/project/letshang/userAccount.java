@@ -41,7 +41,8 @@ public class userAccount extends AppCompatActivity {
             userName = info.get(2);
             ((TextView)findViewById(R.id.userName)).setText(userName);
             ((TextView)findViewById(R.id.userGender)).setText(info.get(3));
-            ((LinearLayout)findViewById(R.id.passwordLayout)).setVisibility(View.GONE);
+            ((TextView)findViewById(R.id.passwordText)).setVisibility(View.GONE);
+            ((TextView)findViewById(R.id.password)).setVisibility(View.GONE);
         }
     }
 

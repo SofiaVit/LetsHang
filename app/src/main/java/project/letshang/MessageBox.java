@@ -46,6 +46,9 @@ public class MessageBox extends AppCompatActivity {
                     String body = getResources().getString(R.string.friendInvateBody) + " " + temp[i+4];
                     messagesList.add(new MessageForList(id, temp[i],getResources().getString(R.string.friendInvate), temp[i + 2], temp[i + 3], temp[i + 4], body , temp[i+6], temp[i+7]));
                 }
+                else if(temp[i+7].equals("MeetingInvite")){
+                    messagesList.add(new MessageForList(id, temp[i],getResources().getString(R.string.MeetingInvitation),temp[i + 2], temp[i + 3], temp[i + 4], temp[i + 5], temp[i+6], temp[i+7] ));
+                }
                 else
                     messagesList.add(new MessageForList(id, temp[i], temp[i + 1], temp[i + 2], temp[i + 3], temp[i + 4], temp[i + 5], temp[i+6],temp[i+7]));
                 i = i + 9;
@@ -89,6 +92,14 @@ public class MessageBox extends AppCompatActivity {
                     }
                     else if(messagesList.get(position).getType().equals("Message")){
                         showDialog.showReadMessageDialog(mContext,mActivity,messagesList.get(position).getSubject(),messagesList.get(position).getBody(),messagesList.get(position).getAuthor(),messagesList.get(position).getMessageId());
+                    }
+                    else if(messagesList.get(position).getType().equals("MeetingInvite")){
+                        database db = new database(mContext,mActivity);
+                        db.execute("findMeeting",messagesList.get(position).getBody());
+                        //Body is the id of message||SubTheme . Show dialog three buttons: cancel, delete, go to meeting.
+                        //Body: Friend (Name ) invited you to meeting: "SubTheme";
+                        //if go to meeting- get meeting info based on id and put into MeetingForList.
+                        //Send to meetingInfo.class
                     }
                 }
             });

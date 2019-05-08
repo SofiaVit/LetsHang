@@ -106,4 +106,14 @@
     <string name="newMeetingLabel">" Новая Встреча"</string>
     <string name="meetingDescription">" Описание Встречи"</string>
     <string name="genderAllowd">Пол:</string>
+    <string name="InviteFriend">" Пригласить друга"</string>
+    <string name="inviteMeetingQuestion">" Пригласить друга на эту встречу?"</string>
+    <string name="MeetingInvitation">" Приглашение на встречу"</string>
+    <string name="allreadyFriendMeeting">" Участник уже участвует во встрече"</string>
+    <string name="AllreadyInvitedMeeting">" Этот друг уже получил приглашение на эту встречу"</string>
+    <string name="Notification">" оповещение"</string>
+    <string name="invitedToMeeting">" Друг приглашен на встречу"</string>
+    <string name="goToMeeting">" Показать встречу"</string>
+    <string name="friend">" Друг"</string>
+    <string name="InvitedYou">" пригласил вас на встречу"</string>
 </resources>

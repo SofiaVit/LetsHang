@@ -286,7 +286,7 @@ public class database extends AsyncTask<String,Void,String> {
             }
             return connect();
         }
-        else if(query_name.equals("findEmail") || query_name.equals("findEmailMessage")) {
+        else if(query_name.equals("findEmail") || query_name.equals("findEmailMessage") || query_name.equals("findEmailMeetingInvite")) {
             php_name = "findEmail.php";
             try {
                 post_data = URLEncoder.encode("UserName", "UTF-8") + "=" + URLEncoder.encode(params[8], "UTF-8");
@@ -320,6 +320,10 @@ public class database extends AsyncTask<String,Void,String> {
                 else if(query_name.equals("findEmailMessage")){
                     query_name = "sendMessage";
                     php_name = "sendMessage.php";
+                }
+                else if(query_name.equals("findEmailMeetingInvite")){
+                    query_name = "meetingInvite";
+                    php_name = "meetingInvite.php";
                 }
                 try {
                     post_data = URLEncoder.encode("MessageId", "UTF-8") + "=" + URLEncoder.encode(MessageId, "UTF-8") + "&"
@@ -357,7 +361,7 @@ public class database extends AsyncTask<String,Void,String> {
             }
             return connect();
         }
-        else if(query_name.equals("userFriends")){
+        else if(query_name.equals("userFriends") || query_name.equals("inviteFriendsMeeting")){
             php_name = "userFriends.php";
             try {
                 post_data = URLEncoder.encode("Email", "UTF-8") + "=" + URLEncoder.encode(params[1], "UTF-8");
@@ -373,6 +377,15 @@ public class database extends AsyncTask<String,Void,String> {
                         + URLEncoder.encode("UserName", "UTF-8") + "=" + URLEncoder.encode(params[2], "UTF-8") + "&"
                         + URLEncoder.encode("UserName2", "UTF-8") + "=" + URLEncoder.encode(params[3], "UTF-8");
             } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
+            return connect();
+        }
+        else if(query_name.equals("findMeeting")){
+            php_name = "findMeeting.php";
+            try{
+                post_data = URLEncoder.encode("MeetingId", "UTF-8") + "=" + URLEncoder.encode(params[1], "UTF-8");
+            }catch (UnsupportedEncodingException e){
                 e.printStackTrace();
             }
             return connect();
@@ -535,9 +548,15 @@ public class database extends AsyncTask<String,Void,String> {
             intent.putExtra("friends",result);
             mContext.startActivity(intent);
         }
-        else if(query_name.equals("userFriends")){
+        else if(query_name.equals("userFriends") || query_name.equals("inviteFriendsMeeting")){
             Intent intent = new Intent(mContext,UserFriends.class);
             intent.putExtra("friends",result);
+            if(query_name.equals("userFriends")) {
+                intent.putExtra("meetingInvite", "False");
+            }
+            else{
+                intent.putExtra("meetingInvite", params[2]);
+            }
             mContext.startActivity(intent);
         }
         else if(query_name.equals("allMeetings")){
@@ -697,7 +716,31 @@ public class database extends AsyncTask<String,Void,String> {
         else if(query_name.equals("findEmail")){
             showDialog.showErrorDialog(mContext,mContext.getResources().getString(R.string.userNameNotExist));
         }
-
+        else if(query_name.equals("meetingInvite")){
+            String header = mContext.getResources().getString(R.string.Notification);
+            if(result.equals("MeetingFriend")){
+                showDialog.showNotificationDialog(mContext,header,mContext.getResources().getString(R.string.allreadyFriendMeeting));
+            }
+            if(result.equals("Invited")){
+                showDialog.showNotificationDialog(mContext,header,mContext.getResources().getString(R.string.AllreadyInvitedMeeting));
+            }
+            if(result.equals("ok")){
+                showDialog.showNotificationDialog(mContext,header,mContext.getResources().getString(R.string.invitedToMeeting));
+            }
+            else{
+                showDialog.showErrorDialog(mContext,result);
+            }
+        }
+        else if(query_name.equals("findMeeting")){
+            if(result.equals("error")){
+                showDialog.showErrorDialog(mContext,result);
+            }
+            else{
+                String[] temp = result.split("\\|\\|");
+                MeetingForList meeting = new MeetingForList(1, temp[0], temp[1], temp[2], temp[3], temp[4], temp[5], temp[8], temp[6], temp[7], temp[9], temp[10], temp[11]);
+                showDialog.showInviteMeetingDialog(mContext,mActivity,meeting);
+            }
+        }
     }
 
     @Override

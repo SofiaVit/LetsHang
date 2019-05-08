@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -20,17 +21,18 @@ public class UserFriends extends AppCompatActivity {
     private ListAdapterFriends adapter;
     private List<FriendForList> friendsList;
     private Context mContext;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_friends);
         mContext = this;
         String friends = getIntent().getStringExtra("friends");
+        String meetingInvite = getIntent().getStringExtra("meetingInvite");
 
-        if(friends.equals("noFriends")){
-            ((TextView)findViewById(R.id.noFriendsText)).setVisibility(View.VISIBLE);
-        }
-        else {
+        if (friends.equals("noFriends")) {
+            ((TextView) findViewById(R.id.noFriendsText)).setVisibility(View.VISIBLE);
+        } else {
             String[] temp = friends.split("\\|\\|");
             friendsList = new ArrayList<>();
             int i = 0;
@@ -41,23 +43,31 @@ public class UserFriends extends AppCompatActivity {
                 id = id + 1;
             }
             mListView = (ListView) findViewById(R.id.userFriendsList);
-            adapter = new ListAdapterFriends(this,this, friendsList, "User", userInfoFile.getUserName(this));
+            if (meetingInvite.equals("False")) {
+                adapter = new ListAdapterFriends(this, this, friendsList, "User", userInfoFile.getUserName(this),null);
+
+                ((ImageView) findViewById(R.id.envelopeButton)).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String friendUserName = ((EditText) findViewById(R.id.friendUserName)).getText().toString();
+                        if (friendUserName.isEmpty()) {
+                            showDialog.showErrorDialog(mContext, getString(R.string.emptyUserName));
+                        } else {
+                            DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+                            Date date = new Date();
+                            database db = new database(mContext, null);
+                            db.execute("findEmail", userInfoFile.getUserEmail(mContext), mContext.getString(R.string.friendInvate), dateFormat.format(date), userInfoFile.getUserName(mContext), "False", mContext.getString(R.string.friendInvate), "FriendInvate", friendUserName);
+                        }
+                    }
+                });
+            }
+            else{
+                adapter = new ListAdapterFriends(this, this, friendsList, "meetingInvite", userInfoFile.getUserName(this),meetingInvite);
+                ((View)findViewById(R.id.line)).setVisibility(View.GONE);
+                ((LinearLayout)findViewById(R.id.addFriendLayout)).setVisibility(View.GONE);
+
+            }
             mListView.setAdapter(adapter);
         }
-        ((ImageView)findViewById(R.id.envelopeButton)).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String friendUserName = ((EditText)findViewById(R.id.friendUserName)).getText().toString();
-                if(friendUserName.isEmpty()){
-                    showDialog.showErrorDialog(mContext,getString(R.string.emptyUserName));
-                }
-                else{
-                    DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
-                    Date date = new Date();
-                    database db = new database(mContext, null);
-                    db.execute("findEmail", userInfoFile.getUserEmail(mContext), mContext.getString(R.string.friendInvate), dateFormat.format(date), userInfoFile.getUserName(mContext), "False", mContext.getString(R.string.friendInvate),"FriendInvate",friendUserName);
-                }
-            }
-        });
     }
 }
