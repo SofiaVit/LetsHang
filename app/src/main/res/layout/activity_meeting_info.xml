@@ -56,6 +56,7 @@
     </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/timeLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -76,13 +77,22 @@
         android:textColor="@color/colorBlack"
         android:text="@string/date"/>
 
+            <TextView
+                android:id="@+id/placeText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/place"
+                android:textSize="20sp"
+                android:textColor="@color/colorBlack"
+                />
+
         </LinearLayout>
 
         <RelativeLayout
             android:id="@+id/descriptionLine"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/themeLayout">
+            android:layout_below="@id/timeLayout">
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"

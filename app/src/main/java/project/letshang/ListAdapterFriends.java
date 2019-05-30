@@ -55,6 +55,18 @@ public class ListAdapterFriends extends BaseAdapter {
         String userName = list.get(position).getUserName();
         ((TextView)view.findViewById(R.id.userNameText)).setText(userName);
         view.setTag(list.get(position).getId());
+        ImageView reportImage = (ImageView)view.findViewById(R.id.reportImage);
+        if(this.userName.equals(userName)){
+            reportImage.setVisibility(View.GONE);
+        }
+        else {
+            reportImage.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    showDialog.showReportDialog(context, activity, "user", list.get(position).getUserName());
+                }
+            });
+        }
         if(FriendsType.equals("Meeting")) {
             ImageView addFrindImage = (ImageView)view.findViewById(R.id.addFriendImage);
             if(this.userName.equals(userName)){

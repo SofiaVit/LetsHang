@@ -53,19 +53,7 @@ public class ListAdapter extends BaseAdapter {
         ((TextView)view.findViewById(R.id.dateText)).setText(list.get(position).getDate());
         String afterAge = list.get(position).getAfterAge();
         String belowAge = list.get(position).getBelowAge();
-        TextView betweenAge = (TextView)view.findViewById(R.id.betweenAgeText);
-        if(!(afterAge.equals("None")) || !(belowAge.equals("None"))) {
-            if (afterAge.equals("None"))
-                afterAge = "0";
-            if (belowAge.equals("None"))
-                belowAge = "0";
-            String between = afterAge + "-" + belowAge;
-            betweenAge.setText(between);
-        }
-        String gender = list.get(position).getGender();
-        TextView genderText = (TextView)view.findViewById(R.id.GenderText);
-        if(!(gender.equals("None")))
-            genderText.setText(list.get(position).getGender());
+
         view.setTag(list.get(position).getId());
         return view;
     }

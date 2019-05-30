@@ -29,7 +29,7 @@
         android:paddingTop="10dp"
         android:layout_below="@id/noMessages"
         android:divider="@android:color/transparent"
-        android:dividerHeight="15dp"
+        android:dividerHeight="10dp"
         />
 
 </RelativeLayout>

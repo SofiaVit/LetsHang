@@ -49,6 +49,8 @@
         <item>פעילות בחוץ</item>
         <item>טיול</item>
         <item>חיות מחמד</item>
+        <item>לימודים</item>
+        <item>אחר</item>
     </string-array>
     <string name="timeHint">זמן</string>
     <string name="date">תאריך</string>
@@ -116,5 +118,27 @@
     <string name="goToMeeting">הצג את המפגש</string>
     <string name="friend">חבר</string>
     <string name="InvitedYou">הזמין אותך למפגש</string>
+    <string-array name="ReportUserChoose">
+        <item>מתחזה למישהו אחר</item>
+        <item>חשבון משתמש מזויף</item>
+        <item>שם משתמש לא הולם</item>
+        <item>מפרסם דברים לא הולמים</item>
+        <item>שולח הודעות לא הולמות</item>
+        <item>יוצר מפגשים מזויפים</item>
+        <item>משהו אחר</item>
+    </string-array>
+    <string-array name="ReportMeetingChoose">
+        <item>מפגש מזוייף</item>
+        <item>נושא מפגש לא הולם</item>
+        <item>תיאור מפגש לא הולם</item>
+        <item>הודעות לא הולמות בפורום</item>
+        <item>משהו אחר</item>
+    </string-array>
+    <string name="reportSent">הדווח נשלח. תודה על תרומתך</string>
+    <string name="None">אין</string>
+    <string name="changeImage">שינוי תמונה</string>
+    <string name="selectPhoto">בחרית תמונה מהגלריה</string>
+    <string name="capturePhoto">צילום תמונה</string>
+    <string name="Meeting">מפגש</string>
 
 </resources>

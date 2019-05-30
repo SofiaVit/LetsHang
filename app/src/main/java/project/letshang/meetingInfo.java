@@ -1,5 +1,6 @@
 package project.letshang;
 
+import android.content.Intent;
 import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -35,6 +36,7 @@ public class meetingInfo extends AppCompatActivity {
         ((TextView)findViewById(R.id.dateText)).setText(meeting.getDate());
         ((TextView)findViewById(R.id.descriptionText)).setText(meeting.getDescription());
         ((TextView)findViewById(R.id.genderText)).setText(meeting.getGender());
+        ((TextView)findViewById(R.id.placeText)).setText(meeting.getPlace());
         String age = meeting.getAfterAge() + "-" + meeting.getBelowAge();
         ((TextView)findViewById(R.id.ageRangeText)).setText(age);
     }
@@ -47,4 +49,12 @@ public class meetingInfo extends AppCompatActivity {
         outState.putString("meetingId", meetingId);
     }
 
+    @Override
+    public void onBackPressed() {
+        if(true){
+            startActivity(new Intent(this,UserMain.class));
+        }
+        else
+            super.onBackPressed();
+    }
 }

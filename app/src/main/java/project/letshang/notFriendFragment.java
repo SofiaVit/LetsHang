@@ -64,6 +64,12 @@ public class notFriendFragment extends Fragment {
                 }
             }
         });
+        ((Button)view.findViewById(R.id.reportButton)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDialog.showReportDialog(getActivity(),getActivity(),"meeting",meetingId);
+            }
+        });
         return view;
     }
 

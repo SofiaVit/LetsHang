@@ -27,4 +27,9 @@
         <item name="android:headerBackground">@color/ColorSea</item>
     </style>
 
+    <style name="customStyleSpinner" parent="Widget.AppCompat.Light.DropDownItem.Spinner">
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:textSize">10sp</item>
+    </style>
+
 </resources>

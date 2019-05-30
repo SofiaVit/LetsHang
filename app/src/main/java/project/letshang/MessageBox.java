@@ -106,5 +106,14 @@ public class MessageBox extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        if(true){
+            startActivity(new Intent(this,UserMain.class));
+        }
+        else
+            super.onBackPressed();
+    }
+
 
 }

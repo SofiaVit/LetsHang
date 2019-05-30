@@ -3,6 +3,9 @@
           package="project.letshang">
 
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:allowBackup="true"
@@ -14,7 +17,9 @@
         android:windowSoftInputMode="stateAlwaysHidden|adjustResize|adjustPan">
         <activity android:name=".inviteFriendMeeting">
         </activity>
-        <activity android:name=".Forum">
+        <activity android:name=".Forum"
+                  android:parentActivityName=".UserMain"
+            android:label="@string/forum">
         </activity>
         <activity
             android:name=".UserFriends"
@@ -23,7 +28,8 @@
         </activity>
         <activity
             android:name=".MessageBox"
-            android:parentActivityName=".UserMain">
+            android:parentActivityName=".UserMain"
+            android:label="@string/messageBox">
         </activity>
         <activity
             android:name=".meetingFriends"
@@ -31,11 +37,14 @@
         </activity>
         <activity
             android:name=".searchMeeting"
-            android:parentActivityName=".UserMain">
+            android:parentActivityName=".UserMain"
+            android:label="@string/search"
+            >
         </activity>
         <activity
             android:name=".meetingInfo"
-            android:parentActivityName=".UserMain">
+            android:parentActivityName=".UserMain"
+            android:label="@string/Meeting">
         </activity>
         <activity
             android:name=".newMeeting"

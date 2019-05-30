@@ -5,7 +5,10 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.widget.AppCompatSpinner;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
@@ -32,6 +35,52 @@ public class showDialog {
            public void onClick(View v) {
                dialog.dismiss();
 
+           }
+       });
+       dialog.show();
+   }
+
+
+   public static void showReportDialog(final Context mContext, final Activity mActivity, final String type, final String id){
+       final String[] header = new String[1];
+       final Dialog dialog = new Dialog(mContext);
+       if(type.equals("meeting"))
+            dialog.setContentView(R.layout.dialog_report_meeting);
+       else
+           dialog.setContentView(R.layout.dialog_report_user);
+       dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+       final AppCompatSpinner spinner = (AppCompatSpinner)dialog.findViewById(R.id.headerSpinner);
+       spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+           @Override
+           public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                header[0] = parent.getItemAtPosition(position).toString();
+           }
+
+           @Override
+           public void onNothingSelected(AdapterView<?> parent) {
+                header[0] = parent.getItemAtPosition(4).toString();
+           }
+       });
+       ((Button)dialog.findViewById(R.id.cancelButton)).setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               dialog.dismiss();
+           }
+       });
+       ((Button)dialog.findViewById(R.id.sendButton)).setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               dialog.dismiss();
+           }
+       });
+
+       ((Button)dialog.findViewById(R.id.sendButton)).setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               String description = ((EditText)dialog.findViewById(R.id.bodyText)).getText().toString();
+               database db = new database(mContext,mActivity);
+               db.execute("report",id,header[0],description);
+               dialog.dismiss();
            }
        });
        dialog.show();
@@ -132,4 +181,5 @@ public class showDialog {
 
        dialog.show();
    }
+
 }

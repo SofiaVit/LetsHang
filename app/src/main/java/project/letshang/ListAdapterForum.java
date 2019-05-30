@@ -8,16 +8,15 @@ import android.widget.TextView;
 
 import java.util.List;
 
-public class ListAdapterMessages extends BaseAdapter {
+public class ListAdapterForum extends BaseAdapter {
     private Context context;
-    private List<MessageForList> list;
+    private List<ForumForList> list;
     private View view;
 
-    public ListAdapterMessages(Context context, List<MessageForList> list){
+    public ListAdapterForum (Context context, List<ForumForList> list){
         this.context = context;
         this.list = list;
     }
-
     @Override
     public int getCount() {
         return list.size();
@@ -35,11 +34,10 @@ public class ListAdapterMessages extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        view = View.inflate(context,R.layout.list_row_messages,null);
-        ((TextView)view.findViewById(R.id.authorText)).setText(list.get(position).getAuthor());
+        view = View.inflate(context,R.layout.list_row_forum,null);
+        ((TextView)view.findViewById(R.id.authorText)).setText(list.get(position).getUserName());
         ((TextView)view.findViewById(R.id.dateText)).setText(list.get(position).getDate());
-        ((TextView)view.findViewById(R.id.subjectText)).setText(list.get(position).getSubject());
-        String isRead = list.get(position).getIsRead();
+        ((TextView)view.findViewById(R.id.messageText)).setText(list.get(position).getMessage());
         return view;
     }
 }

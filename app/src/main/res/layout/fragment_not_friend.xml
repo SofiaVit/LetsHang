@@ -6,9 +6,11 @@
              xmlns:app="http://schemas.android.com/apk/res-auto"
              tools:context=".notFriendFragment">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
 
         <Button
             android:id="@+id/joinButton"
@@ -17,9 +19,18 @@
             android:text="@string/join"
             android:background="@drawable/rectangle_button"
             android:padding="15dp"
-            android:textSize="20dp"
-            android:layout_centerHorizontal="true"/>
+            />
 
-    </RelativeLayout>
+        <Button
+            android:id="@+id/reportButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/reportingContent"
+            android:background="@drawable/rectangle_button"
+            android:padding="15dp"
+            android:layout_marginStart="10dp"
+            />
+
+    </LinearLayout>
 
 </FrameLayout>

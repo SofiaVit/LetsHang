@@ -3,6 +3,7 @@ package project.letshang;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
@@ -60,6 +61,7 @@ public class newMeeting extends AppCompatActivity implements AdapterView.OnItemS
             public void onError(@NonNull Status status) {
                 popUp pop = new popUp(context,"Error",status.getStatusMessage());
             }
+
         });
         checkBox = (CheckBox)findViewById(R.id.genderCheck);
         gender = userInfoFile.getUserGender(this);
@@ -86,10 +88,14 @@ public class newMeeting extends AppCompatActivity implements AdapterView.OnItemS
         TimePickerDialog timePickerDialog = new TimePickerDialog(this, new TimePickerDialog.OnTimeSetListener() {
             @Override
             public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                timeChooser.setText(hourOfDay + ":" + minute);
+                timeChooser.setText(checkDigit(hourOfDay) + ":" + checkDigit(minute));
             }
         },hour,minute,true);
         timePickerDialog.show();
+    }
+
+    public String checkDigit(int number){
+        return number <= 9 ? "0" + number : String.valueOf(number);
     }
 
     public void onClickChooseDate(View view) {
@@ -120,5 +126,14 @@ public class newMeeting extends AppCompatActivity implements AdapterView.OnItemS
             gender = "";
         database db = new database(this,this);
         db.execute("newMeeting",Email,userName,afterAge,belowAge,gender,themeSelected,subThemeSelected,placeSelected,timeSelected,date,description);
+    }
+
+    @Override
+    public void onBackPressed() {
+        if(true){
+            startActivity(new Intent(this,UserMain.class));
+        }
+        else
+            super.onBackPressed();
     }
 }

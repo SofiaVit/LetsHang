@@ -49,6 +49,8 @@
         <item>На открытом воздухе</item>
         <item>Поездка</item>
         <item> Домашние животные</item>
+        <item>Учеба</item>
+        <item>Другой</item>
     </string-array>
     <string name="timeHint">" время"</string>
     <string name="date">дата</string>
@@ -116,4 +118,26 @@
     <string name="goToMeeting">" Показать встречу"</string>
     <string name="friend">" Друг"</string>
     <string name="InvitedYou">" пригласил вас на встречу"</string>
+    <string-array name="ReportUserChoose">
+        <item>Притворяеться кем-то</item>
+        <item>Поддельный аккаунт</item>
+        <item>Неуместное имя пользователя</item>
+        <item>Публикация неуместных вещей</item>
+        <item>Отправлено неуместное сообщение</item>
+        <item>Создание поддельных встреч</item>
+        <item>что-нибудь другое</item>
+    </string-array>
+    <string-array name="ReportMeetingChoose">
+        <item>Поддельная встреча</item>
+        <item>Неуместная тема встречи</item>
+        <item>Неуместное описание встречи</item>
+        <item>Неуместные сообщения на форуме</item>
+        <item>что-нибудь другое</item>
+    </string-array>
+    <string name="reportSent">Отчет отправлен. Спасибо за ваш вклад</string>
+    <string name="None">нет</string>
+    <string name="changeImage">Изменить Изображение</string>
+    <string name="selectPhoto">Выбрать фотографию из галереи</string>
+    <string name="capturePhoto">Сфотографируй</string>
+    <string name="Meeting">" встреча"</string>
 </resources>

@@ -3,16 +3,24 @@ package project.letshang;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
+
 
 public class userAccount extends AppCompatActivity {
     String password;
@@ -44,6 +52,7 @@ public class userAccount extends AppCompatActivity {
             ((TextView)findViewById(R.id.passwordText)).setVisibility(View.GONE);
             ((TextView)findViewById(R.id.password)).setVisibility(View.GONE);
         }
+
     }
 
     public void onClickChangePassword(View view) {
@@ -83,4 +92,12 @@ public class userAccount extends AppCompatActivity {
         dialog.show();
     }
 
+    @Override
+    public void onBackPressed() {
+        if(true){
+            startActivity(new Intent(this,UserMain.class));
+        }
+        else
+            super.onBackPressed();
+    }
 }

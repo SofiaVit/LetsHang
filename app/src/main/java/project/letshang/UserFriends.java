@@ -46,7 +46,7 @@ public class UserFriends extends AppCompatActivity {
             if (meetingInvite.equals("False")) {
                 adapter = new ListAdapterFriends(this, this, friendsList, "User", userInfoFile.getUserName(this),null);
 
-                ((ImageView) findViewById(R.id.envelopeButton)).setOnClickListener(new View.OnClickListener() {
+                ((ImageView) findViewById(R.id.addFriendUserName)).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         String friendUserName = ((EditText) findViewById(R.id.friendUserName)).getText().toString();

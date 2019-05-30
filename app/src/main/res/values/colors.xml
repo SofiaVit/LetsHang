@@ -12,5 +12,7 @@
     <color name="colorGreen">#47ff65</color>
     <color name="lightGray">#cccdce</color>
     <color name="ColorSea">#54ddbd</color>
+    <color name="brightColorSea">#aaffea</color>
     <color name="Red">#ff3838</color>
+    <color name="colorOfWhite">#f2f2f2</color>
 </resources>

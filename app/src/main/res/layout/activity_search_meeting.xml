@@ -17,7 +17,7 @@
         android:id="@+id/searchCard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardBackgroundColor="@color/lightGray"
+        app:cardBackgroundColor="@color/colorOfWhite"
         app:cardElevation="10dp">
 
         <RelativeLayout
@@ -84,7 +84,8 @@
     <FrameLayout
         android:id="@+id/meetingList"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
         android:layout_below="@id/searchCard"/>
 
 </RelativeLayout>

@@ -23,4 +23,9 @@
         <item name="android:textAlignment">center</item>
     </style>
 
+    <style name="customStyleSpinner" parent="Widget.AppCompat.Light.DropDownItem.Spinner">
+        <item name="android:textColor">@color/colorGray</item>>
+        <item name="android:textSize">15sp</item>
+    </style>
+
 </resources>

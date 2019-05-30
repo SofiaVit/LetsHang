@@ -172,6 +172,33 @@ public class database extends AsyncTask<String,Void,String> {
             }
             return connect();
         }
+        else if(query_name.equals("forumWriteMessage")){
+            String result="error";
+            String ForumId = "";
+            php_name="forumId.php";
+            while (result == "error"){
+                Random random = new Random();
+                ForumId = Integer.toString(random.nextInt(2147483646));
+                try {
+                    post_data = URLEncoder.encode("ForumId", "UTF-8") + "=" + URLEncoder.encode(ForumId, "UTF-8") + "&"
+                            + URLEncoder.encode("MeetingId", "UTF-8") + "=" + URLEncoder.encode(params[1], "UTF-8");
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                }
+                result = connect();
+            }
+            php_name = "forumWriteMessage.php";
+            try {
+                post_data =  URLEncoder.encode("MeetingId", "UTF-8") + "=" + URLEncoder.encode(params[1], "UTF-8") + "&"
+                        + URLEncoder.encode("ForumId", "UTF-8") + "=" + URLEncoder.encode(ForumId, "UTF-8") + "&"
+                        + URLEncoder.encode("UserName", "UTF-8") + "=" + URLEncoder.encode(params[2], "UTF-8") + "&"
+                        + URLEncoder.encode("Message", "UTF-8") + "=" + URLEncoder.encode(params[3], "UTF-8") + "&"
+                        + URLEncoder.encode("Date", "UTF-8") + "=" + URLEncoder.encode(params[4], "UTF-8");
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
+            return connect();
+        }
         else if(query_name.equals("searchMeeting")){
             php_name = "searchMeeting.php";
             String Theme = params[1];
@@ -390,6 +417,26 @@ public class database extends AsyncTask<String,Void,String> {
             }
             return connect();
         }
+        else if(query_name.equals("report")){
+            php_name = "report.php";
+            try{
+                post_data = URLEncoder.encode("Id", "UTF-8") + "=" + URLEncoder.encode(params[1], "UTF-8") + "&"
+                        + URLEncoder.encode("Header", "UTF-8") + "=" + URLEncoder.encode(params[2], "UTF-8") + "&"
+                        + URLEncoder.encode("Body", "UTF-8") + "=" + URLEncoder.encode(params[3], "UTF-8");
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
+            return connect();
+        }
+        else if(query_name.equals("showForum")){
+            php_name = "showForum.php";
+            try {
+                post_data = URLEncoder.encode("MeetingId", "UTF-8") + "=" + URLEncoder.encode(params[1], "UTF-8");
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
+            return connect();
+        }
         return null;
     }
 
@@ -557,6 +604,12 @@ public class database extends AsyncTask<String,Void,String> {
             else{
                 intent.putExtra("meetingInvite", params[2]);
             }
+            mContext.startActivity(intent);
+        }
+        else if(query_name.equals("showForum")){
+            Intent intent = new Intent(mContext,Forum.class);
+            intent.putExtra("forum",result);
+            intent.putExtra("meetingId",params[1]);
             mContext.startActivity(intent);
         }
         else if(query_name.equals("allMeetings")){
@@ -739,6 +792,23 @@ public class database extends AsyncTask<String,Void,String> {
                 String[] temp = result.split("\\|\\|");
                 MeetingForList meeting = new MeetingForList(1, temp[0], temp[1], temp[2], temp[3], temp[4], temp[5], temp[8], temp[6], temp[7], temp[9], temp[10], temp[11]);
                 showDialog.showInviteMeetingDialog(mContext,mActivity,meeting);
+            }
+        }
+        else if(query_name.equals("report")){
+            if(result.equals("error")){
+                showDialog.showErrorDialog(mContext,result);
+            }
+            else {
+                showDialog.showNotificationDialog(mContext,mContext.getResources().getString(R.string.Notification),mContext.getResources().getString(R.string.reportSent));
+            }
+        }
+        else if(query_name.equals("forumWriteMessage")){
+            if(result.equals("error")) {
+                showDialog.showErrorDialog(mContext, result);
+            }
+            else{
+                database db = new database(mContext,mActivity);
+                db.execute("showForum",params[1]);
             }
         }
     }

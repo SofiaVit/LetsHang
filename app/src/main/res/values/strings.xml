@@ -51,6 +51,8 @@
         <item>Outdoors</item>
         <item>Trip</item>
         <item>Pets</item>
+        <item>Studies</item>
+        <item>Other</item>
     </string-array>
     <string name="timeHint">Time</string>
     <string name="date">Date</string>
@@ -121,5 +123,27 @@
     <string name="goToMeeting">Show Meeting</string>
     <string name="friend">Friend</string>
     <string name="InvitedYou">invited you to meeting</string>
+    <string-array name="ReportUserChoose">
+        <item>Pretending to be someone</item>
+        <item>Fake account</item>
+        <item>Inappropriate user name</item>
+        <item>Posting inappropriate things</item>
+        <item>Sent inappropriate message</item>
+        <item>Creating fake meetings</item>
+        <item>Something else</item>
+    </string-array>
+    <string-array name="ReportMeetingChoose">
+        <item>Fake meeting</item>
+        <item>Inappropriate meeting theme</item>
+        <item>Inappropriate meeting description</item>
+        <item>Inappropriate messages in forum</item>
+        <item>Something else</item>
+    </string-array>
+    <string name="reportSent">Report sent. Thank you for your contribution</string>
+    <string name="None">None</string>
+    <string name="changeImage">Change Image</string>
+    <string name="selectPhoto">Select photo from gallery</string>
+    <string name="capturePhoto">" Take a picture"</string>
+    <string name="Meeting">MEETING</string>
 
 </resources>

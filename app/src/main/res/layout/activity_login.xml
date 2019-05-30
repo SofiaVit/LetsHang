@@ -20,7 +20,7 @@
             android:textSize="30sp"
             android:textStyle="bold"
             android:layout_marginTop="20dp"
-            android:paddingBottom="40dp"
+            android:paddingBottom="20dp"
             android:textColor="@color/colorBlack"
             />
 
@@ -57,16 +57,20 @@
                 />
 
             <TextView
-                android:id="@+id/register"
+                android:id="@+id/loginButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:drawableRight="@drawable/ic_arrow_small"
+                android:gravity="center"
+                android:drawablePadding="10dp"
                 android:layout_gravity="center"
                 android:paddingTop="20dp"
                 android:textColor="@color/ColorSea"
                 android:textStyle="bold"
                 android:textSize="20sp"
-                android:text="@string/JoinUs"
-                android:onClick="onClickSignUp"/>
+                android:text="@string/login"
+                android:onClick="onClickLogin"/>
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
@@ -74,21 +78,27 @@
 
         </LinearLayout>
 
-        <ImageView
-            android:id="@+id/loginButton"
+        <TextView
+            android:id="@+id/register"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_arrow"
             android:layout_below="@+id/loginDetailsLayout"
             android:layout_centerHorizontal="true"
-            android:onClick="onClickLogin"
-            />
+            android:textColor="@color/ColorSea"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:text="@string/JoinUs"
+            android:onClick="onClickSignUp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"/>
+
 
         <RelativeLayout
             android:id="@+id/socialNetworkLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/loginButton">
+            android:layout_below="@id/register">
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
